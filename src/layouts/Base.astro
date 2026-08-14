@@ -43,6 +43,13 @@ const desc = description ?? '満州事変から敗戦までを、著者の方法
       <slot />
     </main>
 
+    <button type="button" class="to-top" id="toTop" aria-label="ページの先頭へ戻る">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+        <path d="M8 13V4M8 4L3.5 8.5M8 4l4.5 4.5" stroke-linecap="square" />
+      </svg>
+      <span class="to-top-label">先頭へ</span>
+    </button>
+
     <footer class="site-footer">
       <div class="inner">
         <p>昭和の戦争を読む — 書誌情報は各出版社の公式ページ・国立国会図書館サーチで確認のうえ掲載しています（2026年8月時点）。</p>
@@ -63,6 +70,19 @@ const desc = description ?? '満州事変から敗戦までを、著者の方法
         els.forEach((el) => io.observe(el));
       } else {
         els.forEach((el) => el.classList.add('is-visible'));
+      }
+
+      const toTop = document.getElementById('toTop');
+      if (toTop) {
+        const toggle = () => {
+          toTop.classList.toggle('is-shown', window.scrollY > 600);
+        };
+        toggle();
+        window.addEventListener('scroll', toggle, { passive: true });
+        toTop.addEventListener('click', () => {
+          const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+        });
       }
     </script>
   </body>

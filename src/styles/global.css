@@ -246,6 +246,34 @@ table.biblio th { background: var(--paper-deep); font-weight: 700; white-space: 
 }
 .void-note strong { color: var(--shu); }
 
+/* ---------- トップへ戻る ---------- */
+.to-top {
+  position: fixed; right: 24px; bottom: 24px; z-index: 50;
+  width: 52px; height: 52px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  box-shadow: 3px 3px 0 rgba(33, 29, 22, 0.15);
+  color: var(--ink);
+  cursor: pointer;
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s, background 0.2s, color 0.2s;
+  padding: 0;
+  font-family: inherit;
+}
+.to-top.is-shown { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { background: var(--ink); color: var(--paper); }
+.to-top svg { display: block; }
+.to-top .to-top-label {
+  font-size: 0.58rem; letter-spacing: 0.12em; line-height: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .to-top { transition: opacity 0.2s ease, visibility 0.2s; transform: none; }
+}
+@media (max-width: 760px) {
+  .to-top { right: 14px; bottom: 14px; width: 46px; height: 46px; }
+}
+
 /* ---------- パンくず ---------- */
 .crumb { font-size: 0.75rem; color: var(--ink-soft); padding: 18px 0 0; letter-spacing: 0.06em; }
 .crumb a:hover { color: var(--shu); }
