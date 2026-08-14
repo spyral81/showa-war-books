@@ -22,7 +22,10 @@ const myPairs = links.pairs
 
 const myChains = links.chains.filter((c) => c.books.includes(book.slug));
 
-const amazonUrl = `https://www.amazon.co.jp/s?k=${encodeURIComponent(book.title.replace(/（.*?）/g, '') + ' ' + author.name.replace(/『.*』著者陣/, ''))}`;
+const AMAZON_TAG = 'showa-war-22';
+const amazonUrl = book.asin
+  ? `https://www.amazon.co.jp/dp/${book.asin}?tag=${AMAZON_TAG}&linkCode=ll2`
+  : `https://www.amazon.co.jp/s?k=${encodeURIComponent(book.title.replace(/（.*?）/g, '') + ' ' + author.name.replace(/『.*』著者陣/, ''))}&tag=${AMAZON_TAG}`;
 const kindleText = book.kindle === true ? 'あり' : book.kindle === false ? 'なし（紙のみ）' : '未確認';
 ---
 <Base title={book.title} description={book.desc.slice(0, 90)}>
