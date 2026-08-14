@@ -1,0 +1,146 @@
+---
+import Base from '../../layouts/Base.astro';
+import books from '../../data/books.json';
+import authors from '../../data/authors.json';
+import tax from '../../data/taxonomies.json';
+import links from '../../data/links.json';
+
+export function getStaticPaths() {
+  return books.map((b) => ({ params: { slug: b.slug }, props: { book: b } }));
+}
+
+const { book } = Astro.props;
+const author = authors.find((a) => a.slug === book.author);
+const method = tax.methods[book.method];
+const evOf = (slug) => tax.events.find((e) => e.slug === slug);
+const vpOf = (slug) => tax.viewpoints.find((v) => v.slug === slug);
+const bookOf = (slug) => books.find((b) => b.slug === slug);
+
+const myPairs = links.pairs
+  .filter((p) => p.a === book.slug || p.b === book.slug)
+  .map((p) => ({ other: bookOf(p.a === book.slug ? p.b : p.a), theme: p.theme, why: p.why }));
+
+const myChains = links.chains.filter((c) => c.books.includes(book.slug));
+
+const amazonUrl = `https://www.amazon.co.jp/s?k=${encodeURIComponent(book.title.replace(/（.*?）/g, '') + ' ' + author.name.replace(/『.*』著者陣/, ''))}`;
+const kindleText = book.kindle === true ? 'あり' : book.kindle === false ? 'なし（紙のみ）' : '未確認';
+---
+<Base title={book.title} description={book.desc.slice(0, 90)}>
+  <div class="wrap-narrow">
+    <p class="crumb"><a href="/">昭和の戦争を読む</a> ／ <a href="/#matrix">俯瞰マトリクス</a> ／ {book.short}</p>
+
+    <section class="sec" style="margin-top: 36px;">
+      <div class="book-row" style="border-bottom: none; padding-top: 0;">
+        <div class={`cover cover-lg`}>
+          <div class={`obi obi-${book.method}`}></div>
+          <div class="cover-body">
+            <div class="cover-title">{book.short}</div>
+            <div class="cover-author">{author.name}</div>
+          </div>
+        </div>
+        <div class="info">
+          <span class={`method-chip mc-${book.method}`}>{method.label}</span>
+          <h1 style="font-size: 1.5rem; letter-spacing: 0.08em; line-height: 1.6; margin: 10px 0 4px;">{book.title}</h1>
+          <p class="meta"><a href={`/authors/${author.slug}/`} style="border-bottom: 1px solid var(--rule);">{author.name}</a>（{author.years}）</p>
+          <p class="desc" style="margin-top: 12px;">{book.desc}</p>
+          <div class="tags" style="margin-top: 14px;">
+            {book.events.map((e) => <a class="tag" href={`/events/${e}/`}>{evOf(e).name}</a>)}
+            {book.viewpoints.map((v) => <span class="tag">視点: {vpOf(v).name}</span>)}
+            <span class="tag">{book.level}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec-title">書誌</h2>
+      <table class="biblio">
+        <tbody>
+          <tr><th>現行版</th><td>{book.edition}</td></tr>
+          <tr><th>初刊</th><td>{book.firstNote}</td></tr>
+          <tr><th>電子書籍</th><td>{kindleText}</td></tr>
+          {book.availNote ? <tr><th>備考</th><td>{book.availNote}</td></tr> : null}
+        </tbody>
+      </table>
+      <div class="btn-row">
+        <a class="btn btn-shu" href={amazonUrl} target="_blank" rel="noopener sponsored">Amazonで現行版を探す</a>
+      </div>
+      <p style="font-size: 0.72rem; color: var(--ink-soft); margin-top: 8px;">書誌は2026年8月時点。版元の公式ページ・NDLサーチで確認のうえ掲載しています。</p>
+    </section>
+
+    {myPairs.length > 0 && (
+      <section class="sec">
+        <h2 class="sec-title">対で読む</h2>
+        <p class="sec-lede">この本と、逆の方法・立場で同じ出来事を書いた本。</p>
+        {myPairs.map((p) => (
+          <div class="pair">
+            <div class="side">
+              <div class="pair-theme">{p.theme}</div>
+              <h4>{book.short}</h4>
+              <div class="who">いま読んでいる本</div>
+            </div>
+            <div class="vs">⇄</div>
+            <a class="side" href={`/books/${p.other.slug}/`}>
+              <div class="pair-theme">&nbsp;</div>
+              <h4>{p.other.short}</h4>
+              <div class="who">{authors.find((a) => a.slug === p.other.author).name}｜{tax.methods[p.other.method].label}</div>
+            </a>
+            <div class="pair-why">{p.why}</div>
+          </div>
+        ))}
+      </section>
+    )}
+
+    {myChains.length > 0 && (
+      <section class="sec">
+        <h2 class="sec-title">道すじで読む</h2>
+        {myChains.map((c) => (
+          <div class="book-row">
+            <div style="width: 100px; flex-shrink: 0;">
+              <span class="tag">{c.type === 'deepen' ? '深める' : '広げる'}</span>
+            </div>
+            <div class="info">
+              <h3 style="font-size: 0.95rem;">{c.label}</h3>
+              <p class="desc">
+                {c.books.map((slug, i) => {
+                  const b = bookOf(slug);
+                  const current = slug === book.slug;
+                  return (
+                    <>
+                      {i > 0 && ' → '}
+                      {current
+                        ? <strong style="color: var(--shu);">{b.short}</strong>
+                        : <a href={`/books/${b.slug}/`} style="border-bottom: 1px solid var(--rule);">{b.short}</a>}
+                    </>
+                  );
+                })}
+              </p>
+            </div>
+          </div>
+        ))}
+      </section>
+    )}
+
+    <section class="sec">
+      <h2 class="sec-title">同じ著者の本</h2>
+      <div>
+        {books.filter((b) => b.author === book.author && b.slug !== book.slug).map((b) => (
+          <div class="book-row">
+            <a class="cover" href={`/books/${b.slug}/`}>
+              <div class={`obi obi-${b.method}`}></div>
+              <div class="cover-body">
+                <div class="cover-title">{b.short}</div>
+                <div class="cover-author">{author.name}</div>
+              </div>
+            </a>
+            <div class="info">
+              <h3><a href={`/books/${b.slug}/`}>{b.title}</a></h3>
+              <p class="meta">{b.edition}</p>
+              <p class="desc">{b.desc.split('。')[0]}。</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Base>

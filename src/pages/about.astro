@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import books from '../data/books.json';
+import authors from '../data/authors.json';
+---
+<Base title="このサイトについて" description="昭和の戦争を読む——分類の考え方と編集方針。">
+  <div class="wrap-narrow">
+    <p class="crumb"><a href="/">昭和の戦争を読む</a> ／ このサイトについて</p>
+
+    <section class="sec" style="margin-top: 36px;">
+      <h1 style="font-size: 1.7rem; letter-spacing: 0.12em;">このサイトについて</h1>
+      <p class="desc" style="margin-top: 16px; line-height: 2.1;">
+        戦争に関する本は膨大で、どこから読めばいいのか、いま読んでいる本が全体のどこに位置するのか、が分かりにくい。
+        このサイトは、満州事変から敗戦（1931-1945）を扱う書籍{books.filter((b) => !b.related).length}冊を、
+        三つの軸で分類して俯瞰できるようにした個人編集の読書ナビです。
+      </p>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec-title">分類の考え方</h2>
+      <p class="desc" style="line-height: 2.0;">
+        <strong>1. 著者の方法論</strong> — 本サイトの中心軸です。同じ戦争でも「どうやって書いたか」で見える顔が変わります。
+        証言収集（聞き書き）・叙述（語りの通史）・実証史学（史料と統計）・当事者手記（体験者自身）・組織論（敗因の構造分析）・記録文学（取材の文学）の6分類。
+        政治的な立場では分類していません。<br /><br />
+        <strong>2. 出来事</strong> — 満州事変から占領期までの14局面。<br />
+        <strong>3. 視点</strong> — 兵士・指揮官・銃後・子ども・女性・植民地・捕虜など、誰にとっての戦争か。
+      </p>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec-title">連結の考え方</h2>
+      <p class="desc" style="line-height: 2.0;">
+        本と本のあいだのリンクは、すべて編集者が手で張っています。種類は4つ。<br />
+        <strong>対で読む</strong> — 同じ出来事を逆の方法・立場で書いた2冊。<br />
+        <strong>深める</strong> — 同じテーマで難易度を上げる。<br />
+        <strong>広げる</strong> — 同じ出来事の別視点へ。<br />
+        <strong>原典へ</strong> — その本が拠った一次資料へ（準備中）。<br /><br />
+        著者ページでは、その人の書き方の事実（何を史料に、どう書くか）だけを記述し、優劣や偏向の判定はしません。
+        視点の違いは「対で読む」の本の並びそのものに語らせる、というのがこのサイトの編集方針です。
+      </p>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec-title">空白について</h2>
+      <p class="desc" style="line-height: 2.0;">
+        俯瞰マトリクスには、埋まっていないマスが数多くあります。現在の著者{authors.length}人では原爆と特攻がほぼ空白です。
+        空白は隠さず表示しています。「どの局面が、どの書き方で書かれてこなかったか」自体が、
+        戦争の語られ方を映す地図になると考えるからです。選書は今後も追加します。
+      </p>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec-title">書誌と外部リンク</h2>
+      <p class="desc" style="line-height: 2.0;">
+        書誌情報（現行版・初刊・電子書籍の有無）は、各出版社の公式ページと国立国会図書館サーチで1冊ずつ確認のうえ掲載しています（2026年8月時点）。
+        版切れ・改版で情報が変わることがあります。<br />
+        Amazonへのリンクは検索リンクです。今後アソシエイト・プログラムを利用する場合は、このページに明記します。
+      </p>
+    </section>
+  </div>
+</Base>

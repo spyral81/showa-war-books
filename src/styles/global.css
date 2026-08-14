@@ -1,0 +1,262 @@
+/* ============ 紙とインクの手仕事 ============ */
+:root {
+  --paper: #f4efe4;          /* 生成り */
+  --paper-deep: #ece5d4;
+  --ink: #211d16;            /* 墨 */
+  --ink-soft: #57503f;
+  --rule: #c9bfa8;           /* 罫線 */
+  --shu: #a83c25;            /* 朱（アクセント1色） */
+  --shu-soft: #c76a52;
+  /* 方法論の帯色（すべて低彩度の伝統色・墨に馴染む範囲） */
+  --m-shogen: #4a5568;       /* 藍鼠 */
+  --m-jojutsu: #8a4b32;      /* 弁柄 */
+  --m-jissho: #3d5147;       /* 松葉 */
+  --m-shuki: #6b5537;        /* 黄枯茶 */
+  --m-soshiki: #34445e;      /* 鉄紺 */
+  --m-kiroku: #5a5442;       /* 海松茶 */
+  --serif: "Shippori Mincho", "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { font-size: 16px; }
+
+body {
+  font-family: var(--serif);
+  color: var(--ink);
+  line-height: 1.9;
+  background-color: var(--paper);
+  /* 紙のすき込みテクスチャ */
+  background-image:
+    repeating-linear-gradient(0deg, rgba(120, 100, 60, 0.028) 0px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(90deg, rgba(120, 100, 60, 0.02) 0px, transparent 1px, transparent 4px);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--shu); }
+
+img { max-width: 100%; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+.wrap-narrow { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+
+/* ---------- ヘッダー（柱） ---------- */
+.site-header {
+  border-bottom: 3px double var(--rule);
+  background: var(--paper);
+}
+.site-header .inner {
+  max-width: 1080px; margin: 0 auto; padding: 18px 20px 14px;
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.site-title { font-size: 1.45rem; font-weight: 700; letter-spacing: 0.14em; }
+.site-title .tsubo { color: var(--shu); }
+.site-tag { font-size: 0.78rem; color: var(--ink-soft); letter-spacing: 0.08em; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 0.5em 1.4em; font-size: 0.88rem; letter-spacing: 0.06em; }
+.site-nav a { border-bottom: 1px solid transparent; padding-bottom: 2px; }
+.site-nav a:hover { border-bottom-color: var(--shu); }
+
+/* ---------- フッター（奥付） ---------- */
+.site-footer {
+  margin-top: 72px; border-top: 3px double var(--rule);
+  padding: 28px 0 40px; font-size: 0.8rem; color: var(--ink-soft);
+}
+.site-footer .inner { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+.site-footer p { margin-bottom: 0.4em; }
+
+/* ---------- 見出し ---------- */
+.sec { margin-top: 64px; }
+.sec-title {
+  font-size: 1.35rem; font-weight: 700; letter-spacing: 0.12em;
+  display: flex; align-items: center; gap: 14px; margin-bottom: 6px;
+}
+.sec-title::before {
+  content: ""; display: block; width: 14px; height: 14px;
+  background: var(--shu); flex-shrink: 0;
+}
+.sec-lede { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 26px; letter-spacing: 0.04em; }
+
+/* ---------- ふわっと出現（動き・唯一） ---------- */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- 書影（タイポグラフィ表紙） ---------- */
+.cover {
+  width: 128px; height: 184px; flex-shrink: 0;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  box-shadow: 3px 3px 0 rgba(33, 29, 22, 0.12);
+  display: flex; position: relative; overflow: hidden;
+}
+.cover .obi { width: 14px; height: 100%; flex-shrink: 0; }
+.cover .cover-body {
+  flex: 1; padding: 12px 10px;
+  writing-mode: vertical-rl; text-orientation: mixed;
+  display: flex; flex-direction: column; justify-content: flex-start;
+}
+.cover .cover-title { font-weight: 700; font-size: 0.92rem; line-height: 1.5; letter-spacing: 0.1em; max-height: 100%; }
+.cover .cover-author { font-size: 0.7rem; color: var(--ink-soft); margin-top: auto; letter-spacing: 0.12em; }
+.cover.cover-lg { width: 168px; height: 244px; }
+.cover.cover-lg .cover-title { font-size: 1.05rem; }
+
+/* ---------- 方法論の帯 ---------- */
+.obi-shogen  { background: var(--m-shogen); }
+.obi-jojutsu { background: var(--m-jojutsu); }
+.obi-jissho  { background: var(--m-jissho); }
+.obi-shuki   { background: var(--m-shuki); }
+.obi-soshiki { background: var(--m-soshiki); }
+.obi-kiroku  { background: var(--m-kiroku); }
+
+.method-chip {
+  display: inline-block; font-size: 0.72rem; letter-spacing: 0.1em;
+  color: #fff; padding: 1px 10px 2px; border-radius: 2px; vertical-align: middle;
+}
+.mc-shogen  { background: var(--m-shogen); }
+.mc-jojutsu { background: var(--m-jojutsu); }
+.mc-jissho  { background: var(--m-jissho); }
+.mc-shuki   { background: var(--m-shuki); }
+.mc-soshiki { background: var(--m-soshiki); }
+.mc-kiroku  { background: var(--m-kiroku); }
+
+.tag {
+  display: inline-block; font-size: 0.75rem; color: var(--ink-soft);
+  border: 1px solid var(--rule); padding: 1px 10px 2px; border-radius: 2px;
+  letter-spacing: 0.06em; background: rgba(255,255,255,0.35);
+}
+a.tag:hover { border-color: var(--shu); color: var(--shu); }
+
+/* ---------- 本の一覧（棚） ---------- */
+.book-row {
+  display: flex; gap: 20px; padding: 22px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.book-row:last-child { border-bottom: none; }
+.book-row .info h3 { font-size: 1.05rem; letter-spacing: 0.06em; line-height: 1.6; }
+.book-row .info h3 a:hover { color: var(--shu); }
+.book-row .meta { font-size: 0.78rem; color: var(--ink-soft); margin: 4px 0 8px; }
+.book-row .desc { font-size: 0.88rem; line-height: 1.85; }
+.book-row .tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* ---------- マトリクス ---------- */
+.matrix-scroller { overflow-x: auto; border: 1px solid var(--rule); background: rgba(255,255,255,0.3); }
+table.matrix { border-collapse: collapse; width: 100%; min-width: 880px; font-size: 0.8rem; }
+table.matrix th, table.matrix td {
+  border: 1px solid var(--rule); padding: 8px 10px; vertical-align: top; text-align: left;
+}
+table.matrix thead th {
+  background: var(--ink); color: var(--paper); font-weight: 500;
+  letter-spacing: 0.08em; font-size: 0.78rem; white-space: nowrap;
+}
+table.matrix tbody th {
+  background: var(--paper-deep); font-weight: 700; white-space: nowrap;
+  font-size: 0.82rem; letter-spacing: 0.04em;
+}
+table.matrix tbody th .period { display: block; font-weight: 400; font-size: 0.68rem; color: var(--ink-soft); }
+table.matrix td a { display: block; line-height: 1.55; padding: 1px 0; }
+table.matrix td a:hover { color: var(--shu); }
+table.matrix td.void { background: repeating-linear-gradient(-45deg, transparent 0 6px, rgba(120,100,60,0.06) 6px 8px); }
+table.matrix td.void span { color: #b0a688; font-size: 0.72rem; letter-spacing: 0.1em; }
+
+/* ---------- 対で読む ---------- */
+.pair {
+  display: grid; grid-template-columns: 1fr 44px 1fr; gap: 0;
+  border: 1px solid var(--rule); background: rgba(255,255,255,0.35);
+  margin-bottom: 18px;
+}
+.pair .side { padding: 18px 20px; }
+.pair .side h4 { font-size: 0.98rem; line-height: 1.6; letter-spacing: 0.04em; }
+.pair .side .who { font-size: 0.75rem; color: var(--ink-soft); margin-top: 2px; }
+.pair .vs {
+  display: flex; align-items: center; justify-content: center;
+  color: var(--shu); font-weight: 700; font-size: 1.1rem;
+  border-left: 1px dashed var(--rule); border-right: 1px dashed var(--rule);
+}
+.pair-theme { font-size: 0.8rem; letter-spacing: 0.1em; color: var(--shu); margin-bottom: 4px; }
+.pair-why {
+  grid-column: 1 / -1; border-top: 1px dashed var(--rule);
+  padding: 12px 20px; font-size: 0.84rem; color: var(--ink-soft); line-height: 1.85;
+}
+
+/* ---------- 入口3枚 ---------- */
+.doors { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 18px; }
+.door {
+  border: 1px solid var(--rule); background: rgba(255,255,255,0.4);
+  padding: 22px 22px 18px; display: block; position: relative;
+}
+.door::after {
+  content: "→"; position: absolute; right: 16px; bottom: 10px; color: var(--shu);
+}
+.door h3 { font-size: 1.1rem; letter-spacing: 0.1em; margin-bottom: 6px; }
+.door p { font-size: 0.82rem; color: var(--ink-soft); line-height: 1.8; }
+.door:hover { border-color: var(--shu); color: inherit; }
+.door:hover h3 { color: var(--shu); }
+
+/* ---------- 書誌表 ---------- */
+table.biblio { border-collapse: collapse; width: 100%; font-size: 0.86rem; }
+table.biblio th, table.biblio td { border: 1px solid var(--rule); padding: 8px 14px; text-align: left; }
+table.biblio th { background: var(--paper-deep); font-weight: 700; white-space: nowrap; width: 8em; }
+
+/* ---------- ボタン（Amazon等） ---------- */
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+.btn {
+  display: inline-block; border: 1px solid var(--ink); padding: 8px 22px;
+  font-size: 0.85rem; letter-spacing: 0.1em; background: transparent;
+}
+.btn:hover { background: var(--ink); color: var(--paper); }
+.btn.btn-shu { border-color: var(--shu); color: var(--shu); }
+.btn.btn-shu:hover { background: var(--shu); color: var(--paper); }
+
+/* ---------- ヒーロー ---------- */
+.hero { padding: 72px 0 56px; border-bottom: 1px solid var(--rule); position: relative; }
+.hero h1 {
+  font-size: clamp(1.7rem, 4.6vw, 2.8rem); font-weight: 700;
+  letter-spacing: 0.16em; line-height: 1.5; margin-bottom: 18px;
+}
+.hero h1 .accent { color: var(--shu); }
+.hero .lede { max-width: 640px; font-size: 0.95rem; line-height: 2.1; color: var(--ink-soft); }
+.hero .hero-side {
+  position: absolute; top: 64px; right: 20px;
+  writing-mode: vertical-rl; letter-spacing: 0.3em;
+  font-size: 0.8rem; color: var(--ink-soft);
+  border-left: 1px solid var(--rule); padding-left: 10px;
+  height: 200px;
+}
+
+/* ---------- 著者ページ ---------- */
+.author-head { display: flex; gap: 28px; align-items: flex-start; flex-wrap: wrap; }
+.author-name-block .kana { font-size: 0.78rem; color: var(--ink-soft); letter-spacing: 0.2em; }
+.author-name-block h1 { font-size: 2rem; letter-spacing: 0.18em; line-height: 1.4; }
+.fact-list { border-top: 1px solid var(--rule); margin-top: 18px; }
+.fact-list dt {
+  float: left; clear: left; width: 7.5em; padding: 10px 0; font-size: 0.8rem;
+  color: var(--ink-soft); letter-spacing: 0.08em;
+}
+.fact-list dd { margin-left: 8em; padding: 10px 0; font-size: 0.88rem; border-bottom: 1px solid var(--rule); }
+
+/* ---------- 空白の告知 ---------- */
+.void-note {
+  border: 1px dashed var(--shu-soft); padding: 18px 22px; margin-top: 26px;
+  font-size: 0.85rem; color: var(--ink-soft); line-height: 1.9;
+  background: rgba(255,255,255,0.3);
+}
+.void-note strong { color: var(--shu); }
+
+/* ---------- パンくず ---------- */
+.crumb { font-size: 0.75rem; color: var(--ink-soft); padding: 18px 0 0; letter-spacing: 0.06em; }
+.crumb a:hover { color: var(--shu); }
+
+@media (max-width: 760px) {
+  .doors { grid-template-columns: 1fr; }
+  .hero .hero-side { display: none; }
+  .book-row { gap: 14px; }
+  .cover { width: 100px; height: 148px; }
+  .cover .cover-title { font-size: 0.8rem; }
+  .pair { grid-template-columns: 1fr; }
+  .pair .vs { border: none; border-top: 1px dashed var(--rule); border-bottom: 1px dashed var(--rule); padding: 4px 0; }
+  .site-header .inner { flex-direction: column; gap: 6px; }
+}

@@ -1,0 +1,50 @@
+{
+  "methods": {
+    "shogen":  { "label": "証言収集", "desc": "当事者への聞き書きを史料の中心に据える" },
+    "jojutsu": { "label": "叙述・語り部", "desc": "史実を物語として通史的に語る" },
+    "jissho":  { "label": "実証史学", "desc": "文書史料・統計から実証的に再構成する" },
+    "shuki":   { "label": "当事者手記", "desc": "自らの体験を書く" },
+    "soshiki": { "label": "組織論・教訓", "desc": "敗因を組織・意思決定の構造として分析する" },
+    "kiroku":  { "label": "記録文学", "desc": "徹底した取材を文学の筆で定着させる" }
+  },
+  "events": [
+    { "slug": "tsushi",   "name": "通史",
+      "period": "1926-1945", "desc": "満州事変から敗戦までを一続きに読む" },
+    { "slug": "manshu",   "name": "満州事変と前夜",
+      "period": "1931-1936", "desc": "満州事変・国際連盟脱退・二・二六事件" },
+    { "slug": "nicchu",   "name": "日中戦争",
+      "period": "1937-1941", "desc": "盧溝橋事件から泥沼の長期戦へ" },
+    { "slug": "nomonhan", "name": "ノモンハン事件",
+      "period": "1939", "desc": "満蒙国境でソ連軍と衝突した「事件」という名の戦争" },
+    { "slug": "kaisen",   "name": "開戦決定",
+      "period": "1941", "desc": "日米交渉の失敗と対米開戦の意思決定" },
+    { "slug": "midway",   "name": "緒戦とミッドウェー",
+      "period": "1941-1942", "desc": "真珠湾からミッドウェー敗北まで、戦争の転回点" },
+    { "slug": "nanpo",    "name": "南方消耗戦",
+      "period": "1942-1945", "desc": "ガダルカナル・ラバウル・インパール・比島持久戦" },
+    { "slug": "leyte",    "name": "レイテ",
+      "period": "1944", "desc": "陸海の総力を投じて敗れた「最大の決戦」" },
+    { "slug": "tokko",    "name": "特攻",
+      "period": "1944-1945", "desc": "組織が個人の死を作戦にした" },
+    { "slug": "okinawa",  "name": "沖縄戦",
+      "period": "1945", "desc": "住民を巻き込んだ地上戦" },
+    { "slug": "kushu",    "name": "空襲と銃後",
+      "period": "1944-1945", "desc": "本土空襲・学徒動員・市民の戦争" },
+    { "slug": "genbaku",  "name": "原爆",
+      "period": "1945", "desc": "広島・長崎" },
+    { "slug": "shusen",   "name": "終戦",
+      "period": "1945", "desc": "ポツダム受諾の聖断から8月15日まで" },
+    { "slug": "sengo",    "name": "占領と戦後処理",
+      "period": "1945-", "desc": "復員・引揚げ・東京裁判・記憶の戦後史" }
+  ],
+  "viewpoints": [
+    { "slug": "heishi",      "name": "兵士" },
+    { "slug": "shiki",       "name": "指揮官・参謀" },
+    { "slug": "seisaku",     "name": "政策決定者" },
+    { "slug": "jugo",        "name": "銃後・市民" },
+    { "slug": "kodomo",      "name": "子ども" },
+    { "slug": "josei",       "name": "女性" },
+    { "slug": "shokuminchi", "name": "植民地・占領地" },
+    { "slug": "horyo",       "name": "捕虜・抑留者" }
+  ]
+}

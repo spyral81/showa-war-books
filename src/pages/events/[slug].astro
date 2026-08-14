@@ -1,0 +1,61 @@
+---
+import Base from '../../layouts/Base.astro';
+import books from '../../data/books.json';
+import authors from '../../data/authors.json';
+import tax from '../../data/taxonomies.json';
+
+export function getStaticPaths() {
+  return tax.events.map((ev) => ({ params: { slug: ev.slug }, props: { ev } }));
+}
+
+const { ev } = Astro.props;
+const methods = Object.entries(tax.methods);
+const coreBooks = books.filter((b) => !b.related);
+const listOf = (mSlug) => coreBooks.filter((b) => b.method === mSlug && b.events.includes(ev.slug));
+const filled = methods.filter(([m]) => listOf(m).length > 0);
+const empty = methods.filter(([m]) => listOf(m).length === 0);
+---
+<Base title={`${ev.name}を読む`} description={`${ev.name}（${ev.period}）——${ev.desc}。この局面を書いた本を方法論別に。`}>
+  <div class="wrap-narrow">
+    <p class="crumb"><a href="/">昭和の戦争を読む</a> ／ <a href="/#matrix">俯瞰マトリクス</a> ／ {ev.name}</p>
+
+    <section class="sec" style="margin-top: 36px;">
+      <h1 style="font-size: 1.8rem; letter-spacing: 0.12em;">{ev.name} <span style="font-size: 0.9rem; color: var(--ink-soft); letter-spacing: 0.08em;">{ev.period}</span></h1>
+      <p class="desc" style="margin-top: 8px; color: var(--ink-soft);">{ev.desc}。</p>
+    </section>
+
+    {filled.map(([mSlug, m]) => (
+      <section class="sec">
+        <h2 class="sec-title">{m.label}で読む</h2>
+        <div>
+          {listOf(mSlug).map((b) => {
+            const author = authors.find((a) => a.slug === b.author);
+            return (
+              <div class="book-row">
+                <a class="cover" href={`/books/${b.slug}/`}>
+                  <div class={`obi obi-${b.method}`}></div>
+                  <div class="cover-body">
+                    <div class="cover-title">{b.short}</div>
+                    <div class="cover-author">{author.name}</div>
+                  </div>
+                </a>
+                <div class="info">
+                  <h3><a href={`/books/${b.slug}/`}>{b.title}</a></h3>
+                  <p class="meta"><a href={`/authors/${author.slug}/`}>{author.name}</a>｜{b.edition}</p>
+                  <p class="desc">{b.desc}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+    ))}
+
+    {empty.length > 0 && (
+      <div class="void-note">
+        <strong>この局面の空白:</strong> {empty.map(([, m]) => m.label).join('・')}では、まだこの局面を収録していません。
+        「{ev.name}」が{empty.length === 6 ? 'どの方法でも' : 'その書き方では'}語られてこなかったのか、選書がまだ追いついていないのか——余白として明示しています。
+      </div>
+    )}
+  </div>
+</Base>

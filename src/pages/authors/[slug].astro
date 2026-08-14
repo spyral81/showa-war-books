@@ -1,0 +1,66 @@
+---
+import Base from '../../layouts/Base.astro';
+import books from '../../data/books.json';
+import authors from '../../data/authors.json';
+import tax from '../../data/taxonomies.json';
+
+export function getStaticPaths() {
+  return authors.map((a) => ({ params: { slug: a.slug }, props: { author: a } }));
+}
+
+const { author } = Astro.props;
+const method = tax.methods[author.method];
+const myBooks = books.filter((b) => b.author === author.slug);
+---
+<Base title={author.name} description={author.profile.slice(0, 90)}>
+  <div class="wrap-narrow">
+    <p class="crumb"><a href="/">昭和の戦争を読む</a> ／ <a href="/#authors">著者から</a> ／ {author.name}</p>
+
+    <section class="sec" style="margin-top: 36px;">
+      <div class="author-head">
+        <div class="author-name-block">
+          <span class={`method-chip mc-${author.method}`}>{method.label}</span>
+          <h1 style="margin-top: 8px;">{author.name}</h1>
+          <div class="kana">{author.years}</div>
+        </div>
+      </div>
+      <p class="desc" style="font-size: 0.92rem; line-height: 2.0; margin-top: 20px;">{author.profile}</p>
+      <dl class="fact-list" style="overflow: hidden;">
+        <dt>方法</dt><dd>{method.label} — {method.desc}</dd>
+        <dt>拠りどころ</dt><dd>{author.yorodokoro}</dd>
+        <dt>世代</dt><dd>{author.generation}</dd>
+        <dt>当事者性</dt><dd>{author.tojisha}</dd>
+      </dl>
+      <p style="font-size: 0.72rem; color: var(--ink-soft); margin-top: 10px;">著者紹介は「何を史料に、どう書くか」の事実記述に限っています。視点の違いは<a href="/#pairs" style="border-bottom: 1px solid var(--rule);">「対で読む」</a>の本の並びでご覧ください。</p>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec-title">収録している{myBooks.length}冊</h2>
+      <div>
+        {myBooks.map((b) => (
+          <div class="book-row">
+            <a class="cover" href={`/books/${b.slug}/`}>
+              <div class={`obi obi-${b.method}`}></div>
+              <div class="cover-body">
+                <div class="cover-title">{b.short}</div>
+                <div class="cover-author">{author.name}</div>
+              </div>
+            </a>
+            <div class="info">
+              <h3><a href={`/books/${b.slug}/`}>{b.title}</a></h3>
+              <p class="meta">{b.edition}｜{b.firstNote}</p>
+              <p class="desc">{b.desc}</p>
+              <div class="tags">
+                {b.events.map((e) => {
+                  const ev = tax.events.find((x) => x.slug === e);
+                  return <a class="tag" href={`/events/${e}/`}>{ev.name}</a>;
+                })}
+                <span class="tag">{b.level}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  </div>
+</Base>

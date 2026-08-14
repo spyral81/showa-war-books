@@ -1,0 +1,165 @@
+---
+import Base from '../layouts/Base.astro';
+import books from '../data/books.json';
+import authors from '../data/authors.json';
+import tax from '../data/taxonomies.json';
+import links from '../data/links.json';
+
+const methods = Object.entries(tax.methods); // [slug, {label, desc}]
+const events = tax.events;
+const coreBooks = books.filter((b) => !b.related);
+
+const cell = (evSlug, mSlug) =>
+  coreBooks.filter((b) => b.method === mSlug && b.events.includes(evSlug));
+
+const bookOf = (slug) => books.find((b) => b.slug === slug);
+const authorOf = (slug) => authors.find((a) => a.slug === slug);
+const voidEvents = events.filter((ev) => methods.every(([m]) => cell(ev.slug, m).length === 0));
+---
+<Base>
+  <div class="wrap">
+    <section class="hero">
+      <h1>戦争の本は、<br />一冊では<span class="accent">読めない</span>。</h1>
+      <p class="lede">
+        同じ戦争でも、証言を集めた人、史料で実証した人、自分の体験を書いた人では、まるで違う顔が見える。
+        このサイトは満州事変から敗戦までの書籍39冊を、<strong>著者の方法論 × 出来事 × 視点</strong>の三方向から俯瞰し、
+        本と本を「対」でつなぐ読書ナビです。
+      </p>
+      <div class="hero-side">昭和元年 — 二十年</div>
+    </section>
+
+    <section class="sec reveal">
+      <h2 class="sec-title">三つの入口</h2>
+      <p class="sec-lede">どの扉から入っても、同じ本にたどり着けます。</p>
+      <div class="doors">
+        <a class="door" href="#matrix">
+          <h3>出来事から</h3>
+          <p>満州事変〜敗戦の14局面。どの局面が、どの書き方で書かれてきたかを一望する俯瞰マトリクス。</p>
+        </a>
+        <a class="door" href="#authors">
+          <h3>著者から</h3>
+          <p>証言・叙述・実証・手記・組織論・記録文学。10人の書き手を「方法」で選ぶ。</p>
+        </a>
+        <a class="door" href="#pairs">
+          <h3>対で読む</h3>
+          <p>同じ出来事を逆の立場・方法で書いた2冊を並べる11組。視点の差そのものを読む。</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="sec reveal" id="matrix">
+      <h2 class="sec-title">俯瞰マトリクス — 出来事 × 方法論</h2>
+      <p class="sec-lede">縦は時代の局面、横は書き方。斜線のマスは「その書き方ではまだ書かれていない」空白です。</p>
+      <div class="matrix-scroller">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th>局面＼方法論</th>
+              {methods.map(([slug, m]) => <th>{m.label}</th>)}
+            </tr>
+          </thead>
+          <tbody>
+            {events.map((ev) => (
+              <tr>
+                <th>
+                  <a href={`/events/${ev.slug}/`}>{ev.name}</a>
+                  <span class="period">{ev.period}</span>
+                </th>
+                {methods.map(([mSlug]) => {
+                  const list = cell(ev.slug, mSlug);
+                  return list.length > 0 ? (
+                    <td>
+                      {list.map((b) => (
+                        <a href={`/books/${b.slug}/`}>{b.short}</a>
+                      ))}
+                    </td>
+                  ) : (
+                    <td class="void"><span>空白</span></td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div class="void-note">
+        <strong>空白は、このサイトの発見です。</strong>
+        現在の39冊（著者10人）では、<strong>{voidEvents.map((e) => e.name).join('・')}</strong>の行がまるごと空白のまま残っています。
+        原爆には井伏鱒二『黒い雨』、特攻には『きけ わだつみのこえ』——次の選書で埋めていく予定の余白であり、
+        「誰がどの書き方で書いてこなかったか」自体が、戦争の語られ方の地図になっています。
+      </div>
+    </section>
+
+    <section class="sec reveal" id="authors">
+      <h2 class="sec-title">著者から — 10人の方法</h2>
+      <p class="sec-lede">同じ戦争を、どうやって書いたか。書き手を「方法」で分類しています（優劣ではありません）。</p>
+      <div>
+        {methods.map(([mSlug, m]) => {
+          const as = authors.filter((a) => a.method === mSlug);
+          return (
+            <div class="book-row">
+              <div style="width: 128px; flex-shrink: 0;">
+                <span class={`method-chip mc-${mSlug}`}>{m.label}</span>
+              </div>
+              <div class="info">
+                <h3>
+                  {as.map((a, i) => (
+                    <>{i > 0 && '／'}<a href={`/authors/${a.slug}/`}>{a.name}</a></>
+                  ))}
+                </h3>
+                <p class="desc">{m.desc}。</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+
+    <section class="sec reveal" id="pairs">
+      <h2 class="sec-title">対で読む — 11組</h2>
+      <p class="sec-lede">同じ出来事を、逆の方法・立場で書いた2冊。並べて読むと、1冊では見えない輪郭が出ます。</p>
+      {links.pairs.map((p) => {
+        const a = bookOf(p.a);
+        const b = bookOf(p.b);
+        return (
+          <div class="pair">
+            <a class="side" href={`/books/${a.slug}/`}>
+              <div class="pair-theme">{p.theme}</div>
+              <h4>{a.short}</h4>
+              <div class="who">{authorOf(a.author).name}｜{tax.methods[a.method].label}</div>
+            </a>
+            <div class="vs">⇄</div>
+            <a class="side" href={`/books/${b.slug}/`}>
+              <div class="pair-theme">&nbsp;</div>
+              <h4>{b.short}</h4>
+              <div class="who">{authorOf(b.author).name}｜{tax.methods[b.method].label}</div>
+            </a>
+            <div class="pair-why">{p.why}</div>
+          </div>
+        );
+      })}
+    </section>
+
+    <section class="sec reveal">
+      <h2 class="sec-title">道すじで読む</h2>
+      <p class="sec-lede">深める（難易度を上げる）・広げる（別視点へ）の読書ルート。</p>
+      {links.chains.map((c) => (
+        <div class="book-row">
+          <div style="width: 128px; flex-shrink: 0;">
+            <span class="tag">{c.type === 'deepen' ? '深める' : '広げる'}</span>
+          </div>
+          <div class="info">
+            <h3>{c.label}</h3>
+            <p class="desc">
+              {c.books.map((slug, i) => {
+                const b = bookOf(slug);
+                return (<>{i > 0 && ' → '}<a href={`/books/${b.slug}/`} style="border-bottom: 1px solid var(--rule);">{b.short}</a></>);
+              })}
+            </p>
+            <p class="desc" style="color: var(--ink-soft); margin-top: 6px;">{c.note}</p>
+          </div>
+        </div>
+      ))}
+    </section>
+  </div>
+</Base>
