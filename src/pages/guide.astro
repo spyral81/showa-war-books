@@ -239,6 +239,13 @@ const VOLUMES = [
         </section>
       `;
       document.getElementById('again').addEventListener('click', reset);
+      // どの動機・読み口の人が多いかを計測する（今後の選書の材料）
+      if (typeof gtag === 'function') {
+        gtag('event', 'guide_complete', {
+          motive: state.m, reading: state.r, volume: state.v,
+          recommended_book: top.slug, next_book: next.slug,
+        });
+      }
       resultEl.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
     }
 
