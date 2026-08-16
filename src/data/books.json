@@ -9,8 +9,12 @@
     "firstYear": 1965,
     "firstNote": "単行本2004年・平凡社",
     "kindle": true,
-    "events": ["tsushi"],
-    "viewpoints": ["seisaku"],
+    "events": [
+      "tsushi"
+    ],
+    "viewpoints": [
+      "seisaku"
+    ],
     "level": "入門",
     "desc": "「授業」の語り口で満州事変から敗戦までを通す、戦後日本でもっとも読まれた昭和通史のひとつ。なぜ誰も戦争を止められなかったのかを、政策と軍部の動きを軸に語り下ろす。2025年に解説・索引付きの新版が出た。"
   },
@@ -24,8 +28,13 @@
     "firstYear": 1965,
     "firstNote": "初刊1965年（決定版1995年）",
     "kindle": true,
-    "events": ["shusen"],
-    "viewpoints": ["seisaku", "shiki"],
+    "events": [
+      "shusen"
+    ],
+    "viewpoints": [
+      "seisaku",
+      "shiki"
+    ],
     "level": "入門",
     "desc": "1945年8月14日正午から玉音放送までの24時間を、閣僚・軍人・将校たちへの取材で分刻みに再現する。ポツダム受諾と宮城事件、「終戦」がいかに際どい綱渡りだったかを描いた戦後ノンフィクションの古典。"
   },
@@ -39,8 +48,12 @@
     "firstYear": 1998,
     "firstNote": "初刊1998年・文藝春秋（山本七平賞）",
     "kindle": true,
-    "events": ["nomonhan"],
-    "viewpoints": ["shiki"],
+    "events": [
+      "nomonhan"
+    ],
+    "viewpoints": [
+      "shiki"
+    ],
     "level": "中級",
     "desc": "1939年夏、満蒙国境でソ連軍に大敗した「事件」を、参謀本部と関東軍のエリート参謀たちの動きから描く。責任を取らない組織の原型がここにあったことを、人物の物語として読ませる。"
   },
@@ -54,8 +67,12 @@
     "firstYear": 1985,
     "firstNote": "初刊1985年・文藝春秋",
     "kindle": true,
-    "events": ["shusen"],
-    "viewpoints": ["seisaku"],
+    "events": [
+      "shusen"
+    ],
+    "viewpoints": [
+      "seisaku"
+    ],
     "level": "中級",
     "desc": "「戦争を終わらせる」ために組閣された鈴木貫太郎内閣と昭和天皇の8か月を追う。開戦より難しかった終戦の意思決定を、老提督と天皇の関係を軸に叙述する。『日本のいちばん長い日』の前段にあたる一冊。"
   },
@@ -69,8 +86,13 @@
     "firstYear": 1999,
     "firstNote": "初刊1999年・朝日新聞社",
     "kindle": true,
-    "events": ["tsushi"],
-    "viewpoints": ["shiki", "heishi"],
+    "events": [
+      "tsushi"
+    ],
+    "viewpoints": [
+      "shiki",
+      "heishi"
+    ],
     "level": "専門",
     "desc": "関係者500人超への聞き書きを土台に、満州事変から敗戦までの昭和陸軍を組織として解剖する。将官から兵卒までの肉声で「誰が・どの会議で・何を決めたか」を積み上げた、証言型昭和史の集大成。2025年に新装版。"
   },
@@ -84,8 +106,13 @@
     "firstYear": 2005,
     "firstNote": "新書書き下ろし",
     "kindle": true,
-    "events": ["tsushi", "kaisen"],
-    "viewpoints": ["seisaku"],
+    "events": [
+      "tsushi",
+      "kaisen"
+    ],
+    "viewpoints": [
+      "seisaku"
+    ],
     "level": "入門",
     "desc": "軍隊の仕組み、開戦の決め方、敗戦の迎え方——「そもそも」から説き起こす一冊。長年の証言収集を背景に、あの戦争の全体像を大人向けに一気に掴ませる入門書として書かれた。"
   },
@@ -99,8 +126,13 @@
     "firstYear": 1979,
     "firstNote": "初刊1979-80年・伝統と現代社",
     "kindle": true,
-    "events": ["kaisen", "sengo"],
-    "viewpoints": ["seisaku"],
+    "events": [
+      "kaisen",
+      "sengo"
+    ],
+    "viewpoints": [
+      "seisaku"
+    ],
     "level": "専門",
     "desc": "開戦時の首相・東條英機の生涯を、遺族・関係者への取材で追った評伝の決定版。凡庸な官僚がなぜ開戦の中心に立ったのか、東京裁判の法廷まで含めて一人の人間として描く。"
   },
@@ -114,8 +146,14 @@
     "firstYear": 2018,
     "firstNote": "新書書き下ろし",
     "kindle": true,
-    "events": ["manshu", "kaisen", "sengo"],
-    "viewpoints": ["seisaku"],
+    "events": [
+      "manshu",
+      "kaisen",
+      "sengo"
+    ],
+    "viewpoints": [
+      "seisaku"
+    ],
     "level": "入門",
     "desc": "東條英機・石原莞爾・犬養毅・吉田茂ら7人の「謎」を、著者が半世紀かけて集めた証言から解く人物論。昭和史の分岐点を動かした人間たちへの入口として読める。"
   },
@@ -130,10 +168,18 @@
     "firstNote": "初刊2015年・筑摩書房",
     "kindle": null,
     "availNote": "文庫の版元在庫は要確認（電子版未確認）",
-    "events": ["nicchu", "nanpo", "sengo"],
-    "viewpoints": ["heishi", "horyo"],
+    "events": [
+      "nicchu",
+      "nanpo",
+      "sengo"
+    ],
+    "viewpoints": [
+      "heishi",
+      "horyo"
+    ],
     "level": "中級",
-    "desc": "40年の聞き取りの中で、元兵士たちが「語らなかったこと」——加害・慰安所・戦犯——に向き合った記録。証言収集という方法の到達点であり、限界と沈黙まで含めて書かれている。"
+    "desc": "40年の聞き取りの中で、元兵士たちが「語らなかったこと」——加害・慰安所・戦犯——に向き合った記録。証言収集という方法の到達点であり、限界と沈黙まで含めて書かれている。",
+    "hardToGet": true
   },
   {
     "slug": "soredemo-sensou-wo-eranda",
@@ -145,8 +191,14 @@
     "firstYear": 2009,
     "firstNote": "初刊2009年・朝日出版社（小林秀雄賞）",
     "kindle": true,
-    "events": ["tsushi", "kaisen"],
-    "viewpoints": ["seisaku", "jugo"],
+    "events": [
+      "tsushi",
+      "kaisen"
+    ],
+    "viewpoints": [
+      "seisaku",
+      "jugo"
+    ],
     "level": "入門",
     "desc": "中高生への5日間の講義をもとに、日清戦争から太平洋戦争まで「当時の人々がなぜ戦争を合理的な選択と考えたのか」を史料から問い直す。実証史学の入口として広く読まれてきた一冊。"
   },
@@ -160,8 +212,13 @@
     "firstYear": 2016,
     "firstNote": "紀伊國屋じんぶん大賞2017",
     "kindle": true,
-    "events": ["manshu", "kaisen"],
-    "viewpoints": ["seisaku"],
+    "events": [
+      "manshu",
+      "kaisen"
+    ],
+    "viewpoints": [
+      "seisaku"
+    ],
     "level": "中級",
     "desc": "リットン報告書・三国同盟・日米交渉——戦争を回避できたかもしれない3つの外交の分岐点を、交渉資料に即して検証する。「選び直せた地点はどこか」を具体的な文書で示す。"
   },
@@ -175,8 +232,14 @@
     "firstYear": 2007,
     "firstNote": "新書書き下ろし",
     "kindle": true,
-    "events": ["manshu", "nicchu"],
-    "viewpoints": ["seisaku", "shokuminchi"],
+    "events": [
+      "manshu",
+      "nicchu"
+    ],
+    "viewpoints": [
+      "seisaku",
+      "shokuminchi"
+    ],
     "level": "中級",
     "desc": "満蒙権益をめぐる日中関係史から、満州事変が「なぜ起こせたのか」、日中戦争が「なぜ止まらなかったのか」を実証する。この時代の政治外交史を一冊で押さえる定番の新書。"
   },
@@ -190,8 +253,13 @@
     "firstYear": 2002,
     "firstNote": "新書書き下ろし",
     "kindle": true,
-    "events": ["tsushi", "kaisen"],
-    "viewpoints": ["seisaku"],
+    "events": [
+      "tsushi",
+      "kaisen"
+    ],
+    "viewpoints": [
+      "seisaku"
+    ],
     "level": "中級",
     "desc": "征韓論から太平洋戦争まで、日本人が開戦を正当化するのに使った「論理」の変遷を追う。戦争そのものではなく「開戦を支えた理屈」を分析対象にした点に特色がある。"
   },
@@ -205,8 +273,14 @@
     "firstYear": 2017,
     "firstNote": "新書大賞2018",
     "kindle": true,
-    "events": ["nanpo", "leyte", "okinawa"],
-    "viewpoints": ["heishi"],
+    "events": [
+      "nanpo",
+      "leyte",
+      "okinawa"
+    ],
+    "viewpoints": [
+      "heishi"
+    ],
     "level": "入門",
     "desc": "戦没者の9割が1944年以降に集中する——餓死・海没死・戦病死の統計から、兵士たちが実際に何で死んだのかを立証する。「戦闘で死んだ」という通念を数字で覆した現代の必読書。続編『続・日本軍兵士』も2025年刊。"
   },
@@ -220,8 +294,13 @@
     "firstYear": 1995,
     "firstNote": "初刊1995年・岩波書店",
     "kindle": true,
-    "events": ["sengo"],
-    "viewpoints": ["jugo", "seisaku"],
+    "events": [
+      "sengo"
+    ],
+    "viewpoints": [
+      "jugo",
+      "seisaku"
+    ],
     "level": "専門",
     "desc": "「あの戦争」の語られ方が戦後50年でどう変わってきたかを追う戦後思想史。戦争の本を読むこと自体を歴史の中に置き直してくれる、このサイトの土台のような一冊。"
   },
@@ -235,8 +314,13 @@
     "firstYear": 2007,
     "firstNote": "新書書き下ろし",
     "kindle": true,
-    "events": ["tsushi"],
-    "viewpoints": ["seisaku", "heishi"],
+    "events": [
+      "tsushi"
+    ],
+    "viewpoints": [
+      "seisaku",
+      "heishi"
+    ],
     "level": "中級",
     "desc": "開戦決定から敗戦までを、政治指導と戦場の実態の両面から通観する実証的な通史。半藤『昭和史』の語りに対して、こちらは史料と研究の到達点で同じ時代を描く。"
   },
@@ -250,8 +334,12 @@
     "firstYear": 2011,
     "firstNote": "初刊2011年・岩波書店",
     "kindle": true,
-    "events": ["sengo"],
-    "viewpoints": ["heishi"],
+    "events": [
+      "sengo"
+    ],
+    "viewpoints": [
+      "heishi"
+    ],
     "level": "専門",
     "desc": "復員した元兵士たちは戦後をどう生きたのか。戦友会・慰霊・沈黙と語りを実証的に追い、「戦争の本」の多くを書き残した世代そのものを歴史化する。"
   },
@@ -265,8 +353,14 @@
     "firstYear": 1948,
     "firstNote": "初刊1948年・創元社（横光利一賞）",
     "kindle": true,
-    "events": ["nanpo", "sengo"],
-    "viewpoints": ["heishi", "horyo"],
+    "events": [
+      "nanpo",
+      "sengo"
+    ],
+    "viewpoints": [
+      "heishi",
+      "horyo"
+    ],
     "level": "中級",
     "desc": "ミンドロ島で米兵を「撃たなかった」自分はなぜ撃たなかったのか——捕虜となった知識人が、自らの内面を執拗に観察した手記。戦争文学の出発点に置かれる一冊。"
   },
@@ -280,8 +374,13 @@
     "firstYear": 1952,
     "firstNote": "初出1951年『展望』",
     "kindle": true,
-    "events": ["nanpo", "leyte"],
-    "viewpoints": ["heishi"],
+    "events": [
+      "nanpo",
+      "leyte"
+    ],
+    "viewpoints": [
+      "heishi"
+    ],
     "level": "中級",
     "desc": "敗走する比島戦線で部隊を追われた一等兵が、飢餓の果てに人肉食の淵へ追い込まれていく。体験を素材に、極限の人間を描き切った小説。『レイテ戦記』と対で読むと戦史と個の両極が見える。"
   },
@@ -295,8 +394,13 @@
     "firstYear": 1971,
     "firstNote": "初刊1971年・中央公論社（毎日芸術賞）",
     "kindle": true,
-    "events": ["leyte"],
-    "viewpoints": ["heishi", "shiki"],
+    "events": [
+      "leyte"
+    ],
+    "viewpoints": [
+      "heishi",
+      "shiki"
+    ],
     "level": "専門",
     "desc": "日米両軍の資料と生存者の証言を渉猟し、8万余の日本兵が死んだレイテ決戦の全貌を再構成した戦記文学の金字塔。元俘虜の作家が「死者の記録」として書いた、個人による戦史の到達点。"
   },
@@ -310,8 +414,13 @@
     "firstYear": 1969,
     "firstNote": "1967年の戦跡再訪をもとにした紀行",
     "kindle": true,
-    "events": ["nanpo", "sengo"],
-    "viewpoints": ["heishi"],
+    "events": [
+      "nanpo",
+      "sengo"
+    ],
+    "viewpoints": [
+      "heishi"
+    ],
     "level": "中級",
     "desc": "戦後22年、生き残った著者がかつての戦場ミンドロ島を再訪する。死んだ戦友と生き残った自分——当事者の「戦後」がどういう時間だったかを伝える慰霊の紀行。"
   },
@@ -325,10 +434,15 @@
     "firstYear": 1973,
     "firstNote": "初刊1973年・講談社",
     "kindle": true,
-    "events": ["nanpo"],
-    "viewpoints": ["heishi"],
+    "events": [
+      "nanpo"
+    ],
+    "viewpoints": [
+      "heishi"
+    ],
     "level": "入門",
-    "desc": "1945年3月、ニューブリテン島バイエンで「玉砕」を命じられた部隊の最期を、生き残った著者が漫画で描く。9割は事実と語られる、兵卒の目から見た玉砕の記録。"
+    "desc": "1945年3月、ニューブリテン島バイエンで「玉砕」を命じられた部隊の最期を、生き残った著者が漫画で描く。9割は事実と語られる、兵卒の目から見た玉砕の記録。",
+    "light": true
   },
   {
     "slug": "comic-showa-shi",
@@ -340,10 +454,18 @@
     "firstYear": 1988,
     "firstNote": "初刊1988-89年・講談社",
     "kindle": true,
-    "events": ["tsushi", "kushu"],
-    "viewpoints": ["heishi", "jugo", "kodomo"],
+    "events": [
+      "tsushi",
+      "kushu"
+    ],
+    "viewpoints": [
+      "heishi",
+      "jugo",
+      "kodomo"
+    ],
     "level": "入門",
-    "desc": "関東大震災から戦争、復興までの昭和を、自伝と歴史解説を織り交ぜて描いた漫画通史。庶民と兵卒の目線で読む昭和史として、活字の通史と対をなす入口になる。"
+    "desc": "関東大震災から戦争、復興までの昭和を、自伝と歴史解説を織り交ぜて描いた漫画通史。庶民と兵卒の目線で読む昭和史として、活字の通史と対をなす入口になる。",
+    "light": true
   },
   {
     "slug": "rabaul-senki",
@@ -356,8 +478,12 @@
     "firstNote": "初刊1994年・筑摩書房",
     "kindle": false,
     "availNote": "電子版なし（紙のみ）",
-    "events": ["nanpo"],
-    "viewpoints": ["heishi"],
+    "events": [
+      "nanpo"
+    ],
+    "viewpoints": [
+      "heishi"
+    ],
     "level": "中級",
     "desc": "ラバウル戦線での日々をスケッチと文章で綴った従軍記。玉砕戦の生き残りとして、また片腕を失った当事者として、戦場の生活と死の距離感を淡々と記録する。"
   },
@@ -371,8 +497,14 @@
     "firstYear": 1976,
     "firstNote": "初刊1976年・朝日新聞社",
     "kindle": true,
-    "events": ["nanpo", "shusen"],
-    "viewpoints": ["heishi", "shiki"],
+    "events": [
+      "nanpo",
+      "shusen"
+    ],
+    "viewpoints": [
+      "heishi",
+      "shiki"
+    ],
     "level": "中級",
     "desc": "北部ルソンの敗走を体験した砲兵少尉が、帝国陸軍という組織の欺瞞と崩壊を内側から記録・分析する。体験記でありながら組織論として読める、前線から見た「失敗の本質」。"
   },
@@ -386,8 +518,13 @@
     "firstYear": 1975,
     "firstNote": "初刊1975年・文藝春秋",
     "kindle": true,
-    "events": ["nanpo", "sengo"],
-    "viewpoints": ["heishi"],
+    "events": [
+      "nanpo",
+      "sengo"
+    ],
+    "viewpoints": [
+      "heishi"
+    ],
     "level": "専門",
     "desc": "自身の軍隊体験を手がかりに、戦後に流布した「戦争伝説」を検証する。百人斬り論争をはじめ、戦争がどう語られ、どう歪むかを当事者の記憶から問うた論争的な仕事。"
   },
@@ -401,8 +538,13 @@
     "firstYear": 1977,
     "firstNote": "初刊1977年・文藝春秋",
     "kindle": true,
-    "events": ["tokko", "tsushi"],
-    "viewpoints": ["seisaku"],
+    "events": [
+      "tokko",
+      "tsushi"
+    ],
+    "viewpoints": [
+      "seisaku"
+    ],
     "level": "中級",
     "desc": "戦艦大和の特攻出撃は「空気」で決まった——データも合理も超えて日本の意思決定を支配する「空気」の正体を論じた古典。戦争の本であると同時に、現代の会議室の本でもある。"
   },
@@ -417,8 +559,17 @@
     "firstYear": 1984,
     "firstNote": "初刊1984年・ダイヤモンド社",
     "kindle": true,
-    "events": ["nomonhan", "midway", "nanpo", "leyte", "okinawa"],
-    "viewpoints": ["shiki", "seisaku"],
+    "events": [
+      "nomonhan",
+      "midway",
+      "nanpo",
+      "leyte",
+      "okinawa"
+    ],
+    "viewpoints": [
+      "shiki",
+      "seisaku"
+    ],
     "level": "中級",
     "desc": "ノモンハン・ミッドウェー・ガダルカナル・インパール・レイテ・沖縄。6つの敗北を「日本軍という組織の失敗」として分析した組織論の古典。このサイトでは6局面すべてに架かるハブとして、各局面の個別の本と対で読める。"
   },
@@ -432,8 +583,12 @@
     "firstYear": 2012,
     "firstNote": "野中郁次郎編著",
     "kindle": true,
-    "events": ["tsushi"],
-    "viewpoints": ["shiki"],
+    "events": [
+      "tsushi"
+    ],
+    "viewpoints": [
+      "shiki"
+    ],
     "level": "中級",
     "desc": "『失敗の本質』の分析を、現場指揮官のリーダーシップという軸で掘り直した姉妹編。組織の失敗の中で、それでも機能したリーダーは何が違ったのかを問う。"
   },
@@ -449,7 +604,9 @@
     "kindle": true,
     "related": true,
     "events": [],
-    "viewpoints": ["shiki"],
+    "viewpoints": [
+      "shiki"
+    ],
     "level": "中級",
     "desc": "同じ著者陣による続編。ただし事例は毛沢東・英本土航空戦・スターリングラードなど外国戦史のみで、昭和の戦争は直接扱わない。『失敗の本質』の裏面（成功した逆転の条件）を知るための関連書。"
   },
@@ -463,8 +620,14 @@
     "firstYear": 1966,
     "firstNote": "初刊1966年・新潮社",
     "kindle": true,
-    "events": ["leyte", "kushu"],
-    "viewpoints": ["jugo", "heishi"],
+    "events": [
+      "leyte",
+      "kushu"
+    ],
+    "viewpoints": [
+      "jugo",
+      "heishi"
+    ],
     "level": "入門",
     "desc": "長崎の造船所で、市民の目から隠されて建造された世界最大の戦艦。棕櫚のすだれで岸壁を覆った機密体制から、シブヤン海の沈没までを取材で再構成した記録文学の代表作。"
   },
@@ -478,8 +641,13 @@
     "firstYear": 1968,
     "firstNote": "初刊1968年・新潮社",
     "kindle": true,
-    "events": ["nicchu", "midway"],
-    "viewpoints": ["heishi"],
+    "events": [
+      "nicchu",
+      "midway"
+    ],
+    "viewpoints": [
+      "heishi"
+    ],
     "level": "中級",
     "desc": "零戦の設計から量産、無敵の緒戦、そして消耗と終焉までを、設計者と搭乗員の側から追う。牛車で機体を運んだ日本の生産力の実態など、技術と戦争の関係を事実で描く。"
   },
@@ -493,8 +661,13 @@
     "firstYear": 1973,
     "firstNote": "初刊1973年・文藝春秋（文藝春秋読者賞）",
     "kindle": true,
-    "events": ["nanpo"],
-    "viewpoints": ["heishi", "shiki"],
+    "events": [
+      "nanpo"
+    ],
+    "viewpoints": [
+      "heishi",
+      "shiki"
+    ],
     "level": "中級",
     "desc": "制海権を失った日本とドイツを結ぶ手段は潜水艦しかなかった。遣独潜水艦作戦という戦史の隅の事実を掘り起こし、乗員たちの往還を追った異色の記録。"
   },
@@ -508,8 +681,13 @@
     "firstYear": 1982,
     "firstNote": "初刊1982年・筑摩書房（『陸軍二等兵比嘉真一』）",
     "kindle": true,
-    "events": ["okinawa"],
-    "viewpoints": ["heishi", "kodomo"],
+    "events": [
+      "okinawa"
+    ],
+    "viewpoints": [
+      "heishi",
+      "kodomo"
+    ],
     "level": "中級",
     "desc": "14歳で沖縄戦を戦った実在の少年兵・比嘉真一の体験を、本人への取材で再構成する。子どもが兵士にされた戦場の実相を、抑制した筆で記録した一冊。"
   },
@@ -523,8 +701,14 @@
     "firstYear": 2001,
     "firstNote": "初刊2001年・筑摩書房",
     "kindle": true,
-    "events": ["kushu", "shusen"],
-    "viewpoints": ["kodomo", "jugo"],
+    "events": [
+      "kushu",
+      "shusen"
+    ],
+    "viewpoints": [
+      "kodomo",
+      "jugo"
+    ],
     "level": "入門",
     "desc": "空襲下の東京で少年期を過ごした著者自身の記憶を書き残した回想記。記録文学の職人が最後に自分の体験を素材にした、銃後の暮らしと死の記録。"
   },
@@ -538,8 +722,12 @@
     "firstYear": 1966,
     "firstNote": "初刊1966年・新潮社（野間文芸賞）",
     "kindle": true,
-    "events": ["genbaku"],
-    "viewpoints": ["jugo"],
+    "events": [
+      "genbaku"
+    ],
+    "viewpoints": [
+      "jugo"
+    ],
     "level": "中級",
     "desc": "被爆者が実際に書き残した日記などを素材に、姪の縁談と原爆症の進行を軸として被爆後の日常を再構成した長編。惨状を叫ばず、日誌に近い文体で市民生活が崩れていく過程を積み上げる。原爆文学の代表作として読み継がれている。"
   },
@@ -554,8 +742,12 @@
     "firstNote": "「夏の花」初出1947年『三田文学』",
     "kindle": null,
     "availNote": "新潮文庫版の電子は未確認。「夏の花」は青空文庫で全文公開",
-    "events": ["genbaku"],
-    "viewpoints": ["jugo"],
+    "events": [
+      "genbaku"
+    ],
+    "viewpoints": [
+      "jugo"
+    ],
     "level": "入門",
     "desc": "被爆した作家自身が数か月後に書いた「夏の花」三部作を中心に、妻の死から廃墟の描写、遺作までを収める。感情を排した簡潔な文で被爆当日を記録した、原爆文学の出発点にあたる作品。"
   },
@@ -569,8 +761,13 @@
     "firstYear": 1948,
     "firstNote": "占領期に刊行。岩波文庫入りは2025年が初",
     "kindle": true,
-    "events": ["genbaku"],
-    "viewpoints": ["jugo", "josei"],
+    "events": [
+      "genbaku"
+    ],
+    "viewpoints": [
+      "jugo",
+      "josei"
+    ],
     "level": "中級",
     "desc": "広島で被爆した小説家が、被爆直後の惨状を克明に記録した代表作。あわせて被爆8年後の広島を描いた作品を収める。占領期の報道規制のもとで刊行に苦労した経緯を綴った序も収録されている。戦後80年の2025年に岩波文庫入りした。"
   },
@@ -584,8 +781,12 @@
     "firstYear": 1951,
     "firstNote": "初刊1951年・岩波書店",
     "kindle": true,
-    "events": ["genbaku"],
-    "viewpoints": ["kodomo"],
+    "events": [
+      "genbaku"
+    ],
+    "viewpoints": [
+      "kodomo"
+    ],
     "level": "入門",
     "desc": "自らも被爆した教育学者が、広島の少年少女の体験記を集めて編んだ手記集。子どもの言葉をそのまま史料として残す方法をとり、刊行後は十数か国語に翻訳された。証言収集という方法の最初期の到達点。"
   },
@@ -599,10 +800,15 @@
     "firstYear": 1952,
     "firstNote": "初刊1952年・青木文庫",
     "kindle": true,
-    "events": ["genbaku"],
-    "viewpoints": ["jugo"],
+    "events": [
+      "genbaku"
+    ],
+    "viewpoints": [
+      "jugo"
+    ],
     "level": "入門",
-    "desc": "広島で被爆した詩人が、被爆の瞬間と被爆者の生を詩の形式で書いた25篇。散文でなく短い言葉に凝縮したため、原爆文学のなかでも最初に手に取りやすい一冊になっている。著者は刊行の翌年、35歳で世を去った。"
+    "desc": "広島で被爆した詩人が、被爆の瞬間と被爆者の生を詩の形式で書いた25篇。散文でなく短い言葉に凝縮したため、原爆文学のなかでも最初に手に取りやすい一冊になっている。著者は刊行の翌年、35歳で世を去った。",
+    "light": true
   },
   {
     "slug": "hadashi-no-gen",
@@ -614,10 +820,17 @@
     "firstYear": 1973,
     "firstNote": "初出1973年『週刊少年ジャンプ』",
     "kindle": true,
-    "events": ["genbaku", "sengo"],
-    "viewpoints": ["kodomo", "jugo"],
+    "events": [
+      "genbaku",
+      "sengo"
+    ],
+    "viewpoints": [
+      "kodomo",
+      "jugo"
+    ],
     "level": "入門",
-    "desc": "6歳で被爆し父・姉・弟を失った漫画家が、自らの体験を少年漫画として描いた作品。被爆の瞬間だけでなく、その後の差別や貧困、戦後を生き延びる過程まで長く描き続けた。多数の言語に翻訳されている。"
+    "desc": "6歳で被爆し父・姉・弟を失った漫画家が、自らの体験を少年漫画として描いた作品。被爆の瞬間だけでなく、その後の差別や貧困、戦後を生き延びる過程まで長く描き続けた。多数の言語に翻訳されている。",
+    "light": true
   },
   {
     "slug": "hiroshima-hersey",
@@ -630,10 +843,15 @@
     "firstNote": "邦訳初版1949年。取材は1946年",
     "kindle": false,
     "availNote": "書店在庫は薄く、出版社取り寄せになることが多い",
-    "events": ["genbaku"],
-    "viewpoints": ["jugo"],
+    "events": [
+      "genbaku"
+    ],
+    "viewpoints": [
+      "jugo"
+    ],
     "level": "中級",
-    "desc": "被爆の翌年に広島を取材した米国人記者が、6人の被爆者の当日を一人ずつの時間軸で叙述した作品。統計や政治でなく個人の経験として惨禍を伝える書き方は、その後の報道文学の型をつくった。1985年の再訪で書かれた6人の戦後を第5章に収める。"
+    "desc": "被爆の翌年に広島を取材した米国人記者が、6人の被爆者の当日を一人ずつの時間軸で叙述した作品。統計や政治でなく個人の経験として惨禍を伝える書き方は、その後の報道文学の型をつくった。1985年の再訪で書かれた6人の戦後を第5章に収める。",
+    "hardToGet": true
   },
   {
     "slug": "genbaku-no-sekaishi",
@@ -645,8 +863,12 @@
     "firstYear": 2008,
     "firstNote": "原著2008年 Oxford University Press",
     "kindle": null,
-    "events": ["genbaku"],
-    "viewpoints": ["seisaku"],
+    "events": [
+      "genbaku"
+    ],
+    "viewpoints": [
+      "seisaku"
+    ],
     "level": "専門",
     "desc": "19世紀の科学から戦時の実戦使用、戦後の核拡散までを一続きに叙述する。各国の政府・軍・科学者がどう動いたかを比較し、原爆投下を米国単独の事件ではなく世界史の流れのなかに置き直す。440頁の学術書。"
   },
@@ -661,10 +883,15 @@
     "firstNote": "単行本2012年・NHK出版",
     "kindle": null,
     "availNote": "新刊入手は困難。図書館・古書での入手が現実的",
-    "events": ["genbaku"],
-    "viewpoints": ["shiki"],
+    "events": [
+      "genbaku"
+    ],
+    "viewpoints": [
+      "shiki"
+    ],
     "level": "中級",
-    "desc": "日本軍の情報部がテニアン発の特殊任務機の呼出符号を傍受し、広島・長崎とも投下前に接近を把握していたとする経緯を、日米の資料と証言から検証する。警報が発せられなかった組織的な判断の欠落を追う。原爆を組織論として読む数少ない一冊。"
+    "desc": "日本軍の情報部がテニアン発の特殊任務機の呼出符号を傍受し、広島・長崎とも投下前に接近を把握していたとする経緯を、日米の資料と証言から検証する。警報が発せられなかった組織的な判断の欠落を追う。原爆を組織論として読む数少ない一冊。",
+    "hardToGet": true
   },
   {
     "slug": "yamato-no-saigo",
@@ -677,8 +904,12 @@
     "firstNote": "初刊1952年・創元社。決定稿1974年",
     "kindle": true,
     "availNote": "紙は品切れがち。電子版は入手しやすい",
-    "events": ["tokko"],
-    "viewpoints": ["heishi"],
+    "events": [
+      "tokko"
+    ],
+    "viewpoints": [
+      "heishi"
+    ],
     "level": "中級",
     "desc": "1945年4月、沖縄水上特攻に出た戦艦大和の出撃から撃沈、漂流、生還までを、副電測士として乗艦した学徒出身の少尉が文語体で記録した。初稿は占領期の検閲で全文削除され、公刊まで長い時間を要した。"
   },
@@ -693,8 +924,13 @@
     "firstNote": "初刊1985年・新潮社",
     "kindle": false,
     "availNote": "電子版は確認できず（紙のみ）",
-    "events": ["tokko"],
-    "viewpoints": ["heishi", "jugo"],
+    "events": [
+      "tokko"
+    ],
+    "viewpoints": [
+      "heishi",
+      "jugo"
+    ],
     "level": "入門",
     "desc": "知覧の特攻基地から出撃した隊員19人を、本人の日記・手紙・遺書と、家族や基地周辺の人々への取材から再構成する。作戦や組織ではなく、隊員ひとりずつの生活と言葉に焦点を当てた記録文学。"
   },
@@ -709,8 +945,13 @@
     "firstNote": "初刊2009年・講談社",
     "kindle": true,
     "availNote": "紙は品切れがち。電子版は入手しやすい",
-    "events": ["tokko"],
-    "viewpoints": ["heishi", "shiki"],
+    "events": [
+      "tokko"
+    ],
+    "viewpoints": [
+      "heishi",
+      "shiki"
+    ],
     "level": "入門",
     "desc": "機体の不調などで生きて還った陸軍特攻隊員を収容した福岡の施設を扱う。生還した隊員が上官から暴力と叱責を受け、再出撃へ追い込まれた実態を、当事者である元隊員の証言をもとに記録する。"
   },
@@ -724,8 +965,14 @@
     "firstYear": 2020,
     "firstNote": "新書書き下ろし",
     "kindle": true,
-    "events": ["tokko"],
-    "viewpoints": ["heishi", "seisaku", "jugo"],
+    "events": [
+      "tokko"
+    ],
+    "viewpoints": [
+      "heishi",
+      "seisaku",
+      "jugo"
+    ],
     "level": "中級",
     "desc": "体当たり兵器に乗った若者が何を考えていたかを、隊員の心情・軍上層部とメディアの意図・国民の受け止めという三方向から検証する。個人の悲劇としてだけでなく、それを支えた社会の側も分析対象に含める。"
   },
@@ -740,8 +987,13 @@
     "firstNote": "初刊1972年・文藝春秋",
     "kindle": true,
     "availNote": "紙は品切れがち。電子版は入手しやすい",
-    "events": ["tokko"],
-    "viewpoints": ["seisaku", "shiki"],
+    "events": [
+      "tokko"
+    ],
+    "viewpoints": [
+      "seisaku",
+      "shiki"
+    ],
     "level": "専門",
     "desc": "特攻を発動した海軍中将・大西瀧治郎の評伝。「外道の統率」と自認しながら、なぜその作戦が組織の決定として通ったのかを、戦況と軍内の力学から分析する。命じた側の論理を正面から扱った一冊。"
   },
@@ -756,8 +1008,14 @@
     "firstNote": "新書書き下ろし",
     "kindle": true,
     "availNote": "紙は品切れがち。電子版は入手しやすい",
-    "events": ["tokko", "sengo"],
-    "viewpoints": ["shiki", "jugo"],
+    "events": [
+      "tokko",
+      "sengo"
+    ],
+    "viewpoints": [
+      "shiki",
+      "jugo"
+    ],
     "level": "入門",
     "desc": "特攻の発生から実態、そして戦後にどう語られてきたかまでを一続きに通観する。公刊戦史と取材を突き合わせ、作戦の効果や立案に関わった者たちの戦後の言動にも触れる。航空特攻に限らず桜花・回天も扱う。"
   },
@@ -771,8 +1029,12 @@
     "firstYear": 2008,
     "firstNote": "初刊2008年『回天の群像』の改題",
     "kindle": true,
-    "events": ["tokko"],
-    "viewpoints": ["heishi"],
+    "events": [
+      "tokko"
+    ],
+    "viewpoints": [
+      "heishi"
+    ],
     "level": "入門",
     "desc": "人間魚雷「回天」の開発経緯と搭乗員を扱う。軍令部を動かして開発に着手した士官から、志願した十代の搭乗員まで、日記・手紙と元搭乗員・遺族の証言でたどる。航空特攻の陰に置かれがちな海の特攻を知る一冊。"
   },
@@ -786,8 +1048,14 @@
     "firstYear": 2001,
     "firstNote": "初刊2001年・新潮社",
     "kindle": true,
-    "events": ["tokko", "shusen"],
-    "viewpoints": ["shiki", "heishi"],
+    "events": [
+      "tokko",
+      "shusen"
+    ],
+    "viewpoints": [
+      "shiki",
+      "heishi"
+    ],
     "level": "入門",
     "desc": "神風特攻第一号として出撃した関行男大尉と、敗戦後に最後の出撃をした中津留達雄大尉。海軍兵学校の同期だった二人を対に置き、命じられながら部下を送り出す立場でもあった現場指揮官の生涯を追う。"
   },
@@ -802,8 +1070,14 @@
     "firstNote": "初刊1949年",
     "kindle": true,
     "primary": true,
-    "events": ["tokko", "nanpo", "tsushi"],
-    "viewpoints": ["heishi"],
+    "events": [
+      "tokko",
+      "nanpo",
+      "tsushi"
+    ],
+    "viewpoints": [
+      "heishi"
+    ],
     "level": "中級",
     "desc": "学徒出陣で戦没した学生たちの日記・手紙・遺書を集めた遺稿集。編者の解説ではなく本人の言葉がそのまま並ぶ。戦後日本で最も広く読まれた一次資料のひとつで、このサイトでは「原典」としても位置づけている。"
   },
@@ -817,10 +1091,17 @@
     "firstYear": 2008,
     "firstNote": "初刊2008-09年・双葉社",
     "kindle": true,
-    "events": ["kushu", "genbaku"],
-    "viewpoints": ["josei", "jugo"],
+    "events": [
+      "kushu",
+      "genbaku"
+    ],
+    "viewpoints": [
+      "josei",
+      "jugo"
+    ],
     "level": "入門",
-    "desc": "広島から呉へ嫁いだ女性すずの日常を、配給・防空・空襲・8月6日を通して描いた漫画。当時の街並みや生活実態を資料考証にもとづき再現している。戦闘の場面ではなく、その周辺で続いていた暮らしの側から戦争を見せる。"
+    "desc": "広島から呉へ嫁いだ女性すずの日常を、配給・防空・空襲・8月6日を通して描いた漫画。当時の街並みや生活実態を資料考証にもとづき再現している。戦闘の場面ではなく、その周辺で続いていた暮らしの側から戦争を見せる。",
+    "light": true
   },
   {
     "slug": "hotaru-no-haka",
@@ -832,8 +1113,13 @@
     "firstYear": 1968,
     "firstNote": "「火垂るの墓」1967年発表（直木賞）",
     "kindle": true,
-    "events": ["kushu", "sengo"],
-    "viewpoints": ["kodomo"],
+    "events": [
+      "kushu",
+      "sengo"
+    ],
+    "viewpoints": [
+      "kodomo"
+    ],
     "level": "入門",
     "desc": "空襲で親を失った14歳の兄と4歳の妹が親族の家を出て野宿し、妹が栄養失調で死ぬまでを描く。著者自身が神戸の空襲で被災し疎開先で妹を亡くした体験が素材になっている。直木賞受賞2編を含む全6編を収録。"
   },
@@ -847,8 +1133,13 @@
     "firstYear": 1969,
     "firstNote": "初出1968年『暮しの手帖』96号",
     "kindle": true,
-    "events": ["kushu"],
-    "viewpoints": ["jugo", "josei"],
+    "events": [
+      "kushu"
+    ],
+    "viewpoints": [
+      "jugo",
+      "josei"
+    ],
     "level": "入門",
     "desc": "1967年の公募に寄せられた1,736編の手記を編集したもの。食糧・衣類・防空・疎開など戦時下の生活実態が、無名の書き手（多くは女性）の具体的な記録として集められている。有名人の回想ではない銃後の集成。"
   },
@@ -862,8 +1153,14 @@
     "firstYear": 1949,
     "firstNote": "初刊1949年・日比谷出版社",
     "kindle": null,
-    "events": ["sengo"],
-    "viewpoints": ["josei", "kodomo", "shokuminchi"],
+    "events": [
+      "sengo"
+    ],
+    "viewpoints": [
+      "josei",
+      "kodomo",
+      "shokuminchi"
+    ],
     "level": "入門",
     "desc": "1945年8月のソ連参戦により満州で夫と離別し、3人の子とともに新京から38度線を越えて帰国するまでの1年余を記した手記。外地で敗戦を迎えた民間人、とくに母と子が何を経験したかを伝える代表的な記録。"
   },
@@ -877,8 +1174,13 @@
     "firstYear": 2012,
     "firstNote": "新書書き下ろし",
     "kindle": null,
-    "events": ["nicchu", "nanpo"],
-    "viewpoints": ["shokuminchi"],
+    "events": [
+      "nicchu",
+      "nanpo"
+    ],
+    "viewpoints": [
+      "shokuminchi"
+    ],
     "level": "中級",
     "desc": "1939年から敗戦までの戦時労務動員について、計画の策定過程・動員の実施状況・動員体制の崩壊までを、行政文書などの基本史料にもとづいて記述する。制度と実務の追跡に徹した実証研究。"
   },
@@ -892,8 +1194,13 @@
     "firstYear": 1997,
     "firstNote": "初刊1997年・岩波新書",
     "kindle": true,
-    "events": ["nicchu"],
-    "viewpoints": ["shokuminchi", "heishi"],
+    "events": [
+      "nicchu"
+    ],
+    "viewpoints": [
+      "shokuminchi",
+      "heishi"
+    ],
     "level": "中級",
     "desc": "日中全面戦争にいたる過程、南京での被害の実相、推定死者数などを、日本側・中国側・第三国の史料から検証した研究。1997年の初版を大幅に増補し、2025年に新版として刊行された。"
   },
@@ -907,8 +1214,13 @@
     "firstYear": 2016,
     "firstNote": "新書書き下ろし",
     "kindle": true,
-    "events": ["sengo"],
-    "viewpoints": ["horyo", "heishi"],
+    "events": [
+      "sengo"
+    ],
+    "viewpoints": [
+      "horyo",
+      "heishi"
+    ],
     "level": "中級",
     "desc": "敗戦後、約60万人の日本人がソ連に抑留された経緯と実態を、ソ連側の資料を含めて検証する。抑留者の手記が伝える体験と、収容所制度そのものの仕組みを突き合わせ、なぜ抑留が行われたのかを制度の側から明らかにする。"
   },
@@ -922,8 +1234,13 @@
     "firstYear": 1986,
     "firstNote": "初刊1986年・文藝春秋",
     "kindle": true,
-    "events": ["midway"],
-    "viewpoints": ["heishi", "josei"],
+    "events": [
+      "midway"
+    ],
+    "viewpoints": [
+      "heishi",
+      "josei"
+    ],
     "level": "専門",
     "desc": "ミッドウェー海戦の日米戦死者3,418人全員の名簿を、著者がひとりで調べ上げて作った。階級・出身・遺族——「数」だった戦死者を「個」に戻す、記録文学の極点。"
   },
@@ -937,8 +1254,14 @@
     "firstYear": 1984,
     "firstNote": "初刊1984-85年・毎日新聞社（菊池寛賞）",
     "kindle": true,
-    "events": ["midway", "sengo"],
-    "viewpoints": ["heishi", "josei"],
+    "events": [
+      "midway",
+      "sengo"
+    ],
+    "viewpoints": [
+      "heishi",
+      "josei"
+    ],
     "level": "専門",
     "desc": "名簿づくり（『記録 ミッドウェー海戦』）から進んで、戦死者と遺族ひとりひとりの人生を日米双方に訪ね歩いた大作。海戦の「その後」を生きた家族たちの40年。2025年に待望の復刊。"
   },
@@ -952,8 +1275,12 @@
     "firstYear": 1972,
     "firstNote": "初刊1972年・中央公論社",
     "kindle": true,
-    "events": ["manshu"],
-    "viewpoints": ["josei"],
+    "events": [
+      "manshu"
+    ],
+    "viewpoints": [
+      "josei"
+    ],
     "level": "中級",
     "desc": "処刑された青年将校たちの妻は、その後の35年をどう生きたか。事件を「遺された女性の側」から記録した、澤地の出発点となった作品。"
   },
@@ -967,8 +1294,14 @@
     "firstYear": 2015,
     "firstNote": "新書オリジナル",
     "kindle": true,
-    "events": ["sengo"],
-    "viewpoints": ["kodomo", "josei", "shokuminchi"],
+    "events": [
+      "sengo"
+    ],
+    "viewpoints": [
+      "kodomo",
+      "josei",
+      "shokuminchi"
+    ],
     "level": "入門",
     "desc": "14歳で満州の敗戦と難民生活、引揚げを体験した著者の自伝。植民地で暮らした少女の目から、「外地の敗戦」がどういうものだったかを伝える。"
   }

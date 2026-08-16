@@ -1,0 +1,282 @@
+---
+import Base from '../layouts/Base.astro';
+import books from '../data/books.json';
+import authors from '../data/authors.json';
+import tax from '../data/taxonomies.json';
+import links from '../data/links.json';
+
+// 診断に使う最小限のデータだけをクライアントへ渡す
+const pool = books
+  .filter((b) => !b.related)
+  .map((b) => ({
+    slug: b.slug,
+    short: b.short,
+    title: b.title,
+    author: authors.find((a) => a.slug === b.author).name,
+    method: b.method,
+    methodLabel: tax.methods[b.method].label,
+    edition: b.edition,
+    level: b.level,
+    events: b.events,
+    viewpoints: b.viewpoints,
+    desc: b.desc,
+    light: !!b.light,
+    hardToGet: !!b.hardToGet,
+  }));
+
+// 「次の1冊」を引くためのペア表
+const pairMap = {};
+for (const p of links.pairs) {
+  (pairMap[p.a] ||= []).push({ slug: p.b, theme: p.theme, why: p.why });
+  (pairMap[p.b] ||= []).push({ slug: p.a, theme: p.theme, why: p.why });
+}
+
+const MOTIVES = [
+  { id: 'kazoku', label: '親や祖父母が生きた時代を知りたい',
+    events: ['kushu', 'sengo', 'tsushi'], viewpoints: ['jugo', 'kodomo'],
+    phrase: '親や祖父母が生きた時代を知りたい' },
+  { id: 'naze', label: 'なぜ始めて、なぜ止められなかったのかを知りたい',
+    events: ['kaisen', 'manshu', 'tsushi'], viewpoints: ['seisaku'],
+    phrase: '戦争が始まった理由を知りたい' },
+  { id: 'senjo', label: '戦場で兵士に何が起きたのかを知りたい',
+    events: ['nanpo', 'leyte', 'okinawa'], viewpoints: ['heishi'],
+    phrase: '戦場の現実を知りたい' },
+  { id: 'shimin', label: '空襲や原爆の下で、市民がどう生きたかを知りたい',
+    events: ['genbaku', 'kushu'], viewpoints: ['jugo', 'kodomo', 'josei'],
+    phrase: '空襲や原爆の下の暮らしを知りたい' },
+  { id: 'soshiki', label: 'なぜあんな作戦が通ったのか——組織の失敗として学びたい',
+    events: ['nomonhan', 'midway', 'tokko'], viewpoints: ['shiki', 'seisaku'], methodBonus: 'soshiki',
+    phrase: '組織の失敗として学びたい' },
+  { id: 'gaichi', label: '外地からの引揚げや、植民地支配のことを知りたい',
+    events: ['sengo', 'nicchu'], viewpoints: ['shokuminchi', 'josei', 'horyo'],
+    phrase: '外地や植民地のことを知りたい' },
+];
+
+const READINGS = [
+  { id: 'monogatari', label: '物語として、通して読みたい', methods: ['jojutsu', 'kiroku'], phrase: '物語として読みたい' },
+  { id: 'honnin', label: '体験した人自身の言葉で読みたい', methods: ['shuki', 'shogen'], phrase: '体験した人の言葉で読みたい' },
+  { id: 'shiryo', label: '史料と数字で、確かめながら読みたい', methods: ['jissho', 'soshiki'], phrase: '史料と数字で確かめたい' },
+  { id: 'karui', label: '漫画や詩など、活字が重くない形で', methods: [], light: true, phrase: '活字が重くない形で読みたい' },
+];
+
+const VOLUMES = [
+  { id: 'karume', label: 'まずは軽いものから', phrase: 'まず軽いものから' },
+  { id: 'atsume', label: '厚くても、読み応えがある方がいい', phrase: '読み応えのあるものを' },
+];
+---
+<Base title="最初の一冊" description="戦争のことを知りたいけれど、何から読めばいいか分からない。3つの質問に答えると、あなたに合う最初の1冊が見つかります。">
+  <div class="wrap-narrow">
+    <p class="crumb"><a href="/">昭和の戦争を読む</a> ／ 最初の一冊</p>
+
+    <section class="sec" style="margin-top: 36px;">
+      <h1 style="font-size: 1.8rem; letter-spacing: 0.12em; line-height: 1.5;">最初の一冊</h1>
+      <p class="desc" style="margin-top: 14px; line-height: 2.05;">
+        戦争のことを知りたい。けれど本が多すぎて、どこから手をつければいいのか分からない。
+        3つの質問に答えてください。63冊のなかから、いま読み始めるのに合う1冊をお返しします。
+      </p>
+    </section>
+
+    <div id="quiz">
+      <section class="sec q-step" data-step="0">
+        <h2 class="sec-title">1. なぜ知りたいですか</h2>
+        <p class="sec-lede">いちばん近いものをひとつ。</p>
+        <div class="choices">
+          {MOTIVES.map((m) => (
+            <button type="button" class="choice" data-q="m" data-v={m.id}>{m.label}</button>
+          ))}
+        </div>
+      </section>
+
+      <section class="sec q-step" data-step="1" hidden>
+        <h2 class="sec-title">2. どう読みたいですか</h2>
+        <p class="sec-lede">同じ出来事でも、書き方によって見えるものが変わります。</p>
+        <div class="choices">
+          {READINGS.map((r) => (
+            <button type="button" class="choice" data-q="r" data-v={r.id}>{r.label}</button>
+          ))}
+        </div>
+        <p style="margin-top: 16px;"><button type="button" class="linklike" data-back="0">← ひとつ前に戻る</button></p>
+      </section>
+
+      <section class="sec q-step" data-step="2" hidden>
+        <h2 class="sec-title">3. どのくらいの重さがいいですか</h2>
+        <p class="sec-lede">最後の質問です。</p>
+        <div class="choices">
+          {VOLUMES.map((v) => (
+            <button type="button" class="choice" data-q="v" data-v={v.id}>{v.label}</button>
+          ))}
+        </div>
+        <p style="margin-top: 16px;"><button type="button" class="linklike" data-back="1">← ひとつ前に戻る</button></p>
+      </section>
+    </div>
+
+    <div id="result" hidden></div>
+
+    <noscript>
+      <div class="void-note">
+        この診断はブラウザ上で動きます。JavaScriptが無効の場合は、
+        <a href="/#matrix" style="border-bottom: 1px solid var(--shu); color: var(--shu);">俯瞰マトリクス</a>から
+        気になる局面を選んでご覧ください。
+      </div>
+    </noscript>
+  </div>
+
+  <script define:vars={{ pool, pairMap, MOTIVES, READINGS, VOLUMES }}>
+    const state = { m: null, r: null, v: null };
+    const steps = [...document.querySelectorAll('.q-step')];
+    const quiz = document.getElementById('quiz');
+    const resultEl = document.getElementById('result');
+
+    const byId = (arr, id) => arr.find((x) => x.id === id);
+
+    function levelScore(vol, level) {
+      if (vol === 'karume') return level === '入門' ? 3 : level === '中級' ? 0 : -3;
+      return level === '入門' ? 0 : level === '中級' ? 2 : 3;
+    }
+
+    function score(book, m, r, v) {
+      let s = 0;
+      s += 3 * book.events.filter((e) => m.events.includes(e)).length;
+      s += 2 * book.viewpoints.filter((p) => m.viewpoints.includes(p)).length;
+      if (m.methodBonus && book.method === m.methodBonus) s += 3;
+      s += levelScore(v.id, book.level);
+      if (book.hardToGet) s -= 2;
+      return s;
+    }
+
+    // 読み口は加点でなく絞り込み。「漫画で」と答えた人に厚い新書を返さないため
+    function candidates(r) {
+      if (r.light) {
+        const lights = pool.filter((b) => b.light);
+        if (lights.length) return lights;
+      } else if (r.methods.length) {
+        const matched = pool.filter((b) => r.methods.includes(b.method));
+        if (matched.length) return matched;
+      }
+      return pool;
+    }
+
+    function pick(m, r, v) {
+      const ranked = candidates(r)
+        .map((b) => ({ b, s: score(b, m, r, v), i: pool.indexOf(b) }))
+        .sort((x, y) => y.s - x.s || x.i - y.i);
+      const top = ranked[0].b;
+      // 次の1冊: まず「対で読む」相手、なければ同じ局面の別方法論から
+      let next = null, nextTheme = null, nextWhy = null;
+      const pairs = pairMap[top.slug] || [];
+      if (pairs.length) {
+        const best = pairs
+          .map((p) => ({ p, b: pool.find((x) => x.slug === p.slug) }))
+          .filter((x) => x.b)
+          .sort((x, y) => score(y.b, m, r, v) - score(x.b, m, r, v))[0];
+        if (best) { next = best.b; nextTheme = best.p.theme; nextWhy = best.p.why; }
+      }
+      // 対が無ければ、同じ出来事を別の書き方で扱う本へ広げる（候補は全体から探す）
+      if (!next) {
+        next = pool
+          .filter((b) => b.slug !== top.slug && b.method !== top.method && b.events.some((e) => top.events.includes(e)))
+          .sort((x, y) => score(y, m, r, v) - score(x, m, r, v))[0] || ranked[1].b;
+      }
+      return { top, next, nextTheme, nextWhy };
+    }
+
+    function cover(b, big) {
+      return `<a class="cover${big ? ' cover-lg' : ''}" href="/books/${b.slug}/">
+        <div class="obi obi-${b.method}"></div>
+        <div class="cover-body">
+          <div class="cover-title">${b.short}</div>
+          <div class="cover-author">${b.author}</div>
+        </div>
+      </a>`;
+    }
+
+    function render() {
+      const m = byId(MOTIVES, state.m), r = byId(READINGS, state.r), v = byId(VOLUMES, state.v);
+      const { top, next, nextTheme, nextWhy } = pick(m, r, v);
+      quiz.hidden = true;
+      resultEl.hidden = false;
+      resultEl.innerHTML = `
+        <section class="sec">
+          <h2 class="sec-title">まず、この一冊</h2>
+          <p class="sec-lede">${r.phrase}あなたが、${m.phrase}なら。（${v.phrase}）</p>
+          <div class="book-row" style="border-bottom: none;">
+            ${cover(top, true)}
+            <div class="info">
+              <span class="method-chip mc-${top.method}">${top.methodLabel}</span>
+              <h3 style="font-size: 1.25rem; margin: 8px 0 4px;"><a href="/books/${top.slug}/">${top.title}</a></h3>
+              <p class="meta">${top.author}｜${top.edition}｜${top.level}</p>
+              <p class="desc" style="margin-top: 10px;">${top.desc}</p>
+              <div class="btn-row">
+                <a class="btn btn-shu" href="/books/${top.slug}/">この本のページへ</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="sec">
+          <h2 class="sec-title">読み終えたら、次はこれ</h2>
+          ${nextTheme ? `<p class="sec-lede">${nextTheme}</p>` : '<p class="sec-lede">同じ出来事を、別の書き方で。</p>'}
+          <div class="book-row" style="border-bottom: none;">
+            ${cover(next, false)}
+            <div class="info">
+              <span class="method-chip mc-${next.method}">${next.methodLabel}</span>
+              <h3 style="font-size: 1.05rem; margin: 8px 0 4px;"><a href="/books/${next.slug}/">${next.title}</a></h3>
+              <p class="meta">${next.author}｜${next.level}</p>
+              <p class="desc" style="margin-top: 8px;">${nextWhy || next.desc}</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="sec">
+          <div class="btn-row">
+            <button type="button" class="btn" id="again">もう一度診断する</button>
+            <a class="btn" href="/#matrix">63冊すべてを俯瞰する</a>
+          </div>
+          <p style="font-size: 0.75rem; color: var(--ink-soft); margin-top: 14px; line-height: 1.9;">
+            この診断は、あなたの答えとサイト内の分類（出来事・視点・書き方・難易度）を照らして選んでいます。
+            正解の一冊があるわけではありません。気になる本が別にあれば、そちらから読んでかまいません。
+          </p>
+        </section>
+      `;
+      document.getElementById('again').addEventListener('click', reset);
+      resultEl.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    }
+
+    function show(i) {
+      steps.forEach((s, k) => { s.hidden = k !== i; });
+      quiz.hidden = false;
+      resultEl.hidden = true;
+    }
+
+    function reset() {
+      state.m = state.r = state.v = null;
+      history.replaceState(null, '', '/guide/');
+      show(0);
+      quiz.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    }
+
+    document.querySelectorAll('.choice').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        state[btn.dataset.q] = btn.dataset.v;
+        if (state.m && state.r && state.v) {
+          history.replaceState(null, '', `/guide/?m=${state.m}&r=${state.r}&v=${state.v}`);
+          render();
+        } else {
+          show(btn.dataset.q === 'm' ? 1 : 2);
+        }
+      });
+    });
+
+    document.querySelectorAll('[data-back]').forEach((btn) => {
+      btn.addEventListener('click', () => show(Number(btn.dataset.back)));
+    });
+
+    // URLに回答が入っていれば結果を復元する
+    const qs = new URLSearchParams(location.search);
+    const m0 = qs.get('m'), r0 = qs.get('r'), v0 = qs.get('v');
+    if (byId(MOTIVES, m0) && byId(READINGS, r0) && byId(VOLUMES, v0)) {
+      state.m = m0; state.r = r0; state.v = v0;
+      render();
+    }
+  </script>
+</Base>

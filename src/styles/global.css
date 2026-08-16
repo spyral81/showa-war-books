@@ -246,6 +246,49 @@ table.biblio th { background: var(--paper-deep); font-weight: 700; white-space: 
 }
 .void-note strong { color: var(--shu); }
 
+/* ---------- 診断の選択肢 ---------- */
+.choices { display: flex; flex-direction: column; gap: 10px; }
+.choice {
+  display: block; width: 100%; text-align: left;
+  font-family: inherit; font-size: 0.95rem; line-height: 1.7; letter-spacing: 0.04em;
+  color: var(--ink); background: rgba(255, 255, 255, 0.42);
+  border: 1px solid var(--rule); padding: 15px 20px;
+  cursor: pointer; position: relative;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.choice::after {
+  content: "→"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+  color: var(--rule); transition: color 0.2s;
+}
+.choice:hover, .choice:focus-visible {
+  border-color: var(--shu); background: rgba(255, 255, 255, 0.72);
+  outline: none;
+}
+.choice:hover::after, .choice:focus-visible::after { color: var(--shu); }
+@media (prefers-reduced-motion: no-preference) {
+  .choice:hover { transform: translateX(2px); }
+}
+.linklike {
+  font-family: inherit; font-size: 0.82rem; color: var(--ink-soft);
+  background: none; border: none; border-bottom: 1px solid var(--rule);
+  padding: 0 0 2px; cursor: pointer; letter-spacing: 0.06em;
+}
+.linklike:hover { color: var(--shu); border-bottom-color: var(--shu); }
+.btn { font-family: inherit; cursor: pointer; }
+
+/* ---------- 診断への誘い（トップ） ---------- */
+.guide-cta {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  flex-wrap: wrap;
+  border: 1px solid var(--ink); background: rgba(255, 255, 255, 0.45);
+  box-shadow: 4px 4px 0 rgba(33, 29, 22, 0.1);
+  padding: 24px 28px;
+}
+.guide-cta .lede-block h3 { font-size: 1.15rem; letter-spacing: 0.1em; margin-bottom: 6px; }
+.guide-cta .lede-block p { font-size: 0.86rem; color: var(--ink-soft); line-height: 1.85; }
+.guide-cta:hover { border-color: var(--shu); }
+.guide-cta:hover h3 { color: var(--shu); }
+
 /* ---------- トップへ戻る ---------- */
 .to-top {
   position: fixed; right: 24px; bottom: 24px; z-index: 50;
