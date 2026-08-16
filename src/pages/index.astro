@@ -22,7 +22,7 @@ const voidEvents = events.filter((ev) => methods.every(([m]) => cell(ev.slug, m)
       <h1>戦争の本は、<br />一冊では<span class="accent">読めない</span>。</h1>
       <p class="lede">
         同じ戦争でも、証言を集めた人、史料で実証した人、自分の体験を書いた人では、まるで違う顔が見える。
-        このサイトは満州事変から敗戦までの書籍39冊を、<strong>著者の方法論 × 出来事 × 視点</strong>の三方向から俯瞰し、
+        このサイトは満州事変から敗戦までの書籍{coreBooks.length}冊を、<strong>著者の方法論 × 出来事 × 視点</strong>の三方向から俯瞰し、
         本と本を「対」でつなぐ読書ナビです。
       </p>
       <div class="hero-side">昭和元年 — 二十年</div>
@@ -38,11 +38,11 @@ const voidEvents = events.filter((ev) => methods.every(([m]) => cell(ev.slug, m)
         </a>
         <a class="door" href="#authors">
           <h3>著者から</h3>
-          <p>証言・叙述・実証・手記・組織論・記録文学。10人の書き手を「方法」で選ぶ。</p>
+          <p>証言・叙述・実証・手記・組織論・記録文学。{authors.length}人の書き手を「方法」で選ぶ。</p>
         </a>
         <a class="door" href="#pairs">
           <h3>対で読む</h3>
-          <p>同じ出来事を逆の立場・方法で書いた2冊を並べる11組。視点の差そのものを読む。</p>
+          <p>同じ出来事を逆の立場・方法で書いた2冊を並べる{links.pairs.length}組。視点の差そのものを読む。</p>
         </a>
       </div>
     </section>
@@ -83,15 +83,16 @@ const voidEvents = events.filter((ev) => methods.every(([m]) => cell(ev.slug, m)
         </table>
       </div>
       <div class="void-note">
-        <strong>空白は、このサイトの発見です。</strong>
-        現在の39冊（著者10人）では、<strong>{voidEvents.map((e) => e.name).join('・')}</strong>の行がまるごと空白のまま残っています。
-        原爆には井伏鱒二『黒い雨』、特攻には『きけ わだつみのこえ』——次の選書で埋めていく予定の余白であり、
-        「誰がどの書き方で書いてこなかったか」自体が、戦争の語られ方の地図になっています。
+        <strong>空白も、このサイトの中身です。</strong>
+        {voidEvents.length > 0 && <>いまも<strong>{voidEvents.map((e) => e.name).join('・')}</strong>の行はまるごと空いています。</>}
+        埋まっているマスでも、方法論によって濃淡があります。たとえば原爆は当事者が自ら書いた手記と記録文学が厚い一方、
+        被害の実態を数字で示した実証研究の定番は現在ほとんどが品切れで、新刊で読めるのは投下を決めた側を扱う研究です。
+        「誰が、どの書き方で書いてこなかったか」自体が、戦争の語られ方の地図になっています。
       </div>
     </section>
 
     <section class="sec reveal" id="authors">
-      <h2 class="sec-title">著者から — 10人の方法</h2>
+      <h2 class="sec-title">著者から — {authors.length}人の方法</h2>
       <p class="sec-lede">同じ戦争を、どうやって書いたか。書き手を「方法」で分類しています（優劣ではありません）。</p>
       <div>
         {methods.map(([mSlug, m]) => {

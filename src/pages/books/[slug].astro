@@ -125,6 +125,13 @@ const kindleText = book.kindle === true ? 'あり' : book.kindle === false ? '�
     )}
 
     <section class="sec">
+      <div class="void-note" style="border-style: solid; border-color: var(--rule);">
+        この本が拠った史料そのものに当たりたくなったら —— <a href="/genten/" style="border-bottom: 1px solid var(--shu); color: var(--shu);">原典へ</a>。
+        戦史叢書・アジア歴史資料センターなど、無料で読める一次資料の入口をまとめています。
+      </div>
+    </section>
+
+    <section class="sec">
       <h2 class="sec-title">同じ著者の本</h2>
       <div>
         {books.filter((b) => b.author === book.author && b.slug !== book.slug).map((b) => (

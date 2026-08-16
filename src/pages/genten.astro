@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import sources from '../data/sources.json';
+import books from '../data/books.json';
+import authors from '../data/authors.json';
+import tax from '../data/taxonomies.json';
+
+const primaryBooks = books.filter((b) => b.primary);
+---
+<Base title="原典へ" description="本が拠った一次資料へ。無料で公開されている公文書・証言アーカイブと、原典として読める書籍。">
+  <div class="wrap-narrow">
+    <p class="crumb"><a href="/">昭和の戦争を読む</a> ／ 原典へ</p>
+
+    <section class="sec" style="margin-top: 36px;">
+      <h1 style="font-size: 1.7rem; letter-spacing: 0.12em;">原典へ</h1>
+      <p class="desc" style="margin-top: 14px; line-height: 2.05;">
+        このサイトで紹介している本の多くは、公文書や当事者の記録に拠って書かれています。
+        著者がどの史料を、どう読んだのか。それを自分の目で確かめたくなったときのために、
+        一般に公開されている一次資料の入口をまとめました。いずれも無料で使えます。
+      </p>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec-title">公開アーカイブ</h2>
+      {sources.map((s) => (
+        <div class="book-row">
+          <div style="width: 116px; flex-shrink: 0;">
+            <span class="tag">原典</span>
+            <div class="small" style="font-size: 0.72rem; color: var(--ink-soft); margin-top: 6px;">{s.level}</div>
+          </div>
+          <div class="info">
+            <h3><a href={s.url} target="_blank" rel="noopener">{s.name}</a></h3>
+            <p class="meta">{s.org}｜{s.free}</p>
+            <p class="desc">{s.desc}</p>
+            <p class="desc" style="color: var(--ink-soft); margin-top: 6px;">{s.note}</p>
+            <div class="btn-row" style="margin-top: 12px;">
+              <a class="btn" href={s.url} target="_blank" rel="noopener">サイトを開く</a>
+              {s.searchUrl && <a class="btn" href={s.searchUrl} target="_blank" rel="noopener">全文検索</a>}
+            </div>
+          </div>
+        </div>
+      ))}
+    </section>
+
+    {primaryBooks.length > 0 && (
+      <section class="sec">
+        <h2 class="sec-title">原典として読める本</h2>
+        <p class="sec-lede">編者の解説ではなく、書き手本人の言葉がそのまま並ぶ本。</p>
+        {primaryBooks.map((b) => {
+          const author = authors.find((a) => a.slug === b.author);
+          return (
+            <div class="book-row">
+              <a class="cover" href={`/books/${b.slug}/`}>
+                <div class={`obi obi-${b.method}`}></div>
+                <div class="cover-body">
+                  <div class="cover-title">{b.short}</div>
+                  <div class="cover-author">{author.name}</div>
+                </div>
+              </a>
+              <div class="info">
+                <h3><a href={`/books/${b.slug}/`}>{b.title}</a></h3>
+                <p class="meta">{author.name}｜{b.edition}</p>
+                <p class="desc">{b.desc}</p>
+              </div>
+            </div>
+          );
+        })}
+      </section>
+    )}
+
+    <div class="void-note">
+      一次資料は、読み手が自分で文脈を補いながら読むものです。
+      編纂した主体が誰か、どういう目的で残された記録かによって、書かれていることも書かれていないことも変わります。
+      このサイトの本を先に読んでから当たると、その差が見えやすくなります。
+    </div>
+  </div>
+</Base>

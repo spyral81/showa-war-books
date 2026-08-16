@@ -1,7 +1,9 @@
 ---
 import '../styles/global.css';
+import books from '../data/books.json';
 const { title, description } = Astro.props;
-const pageTitle = title ? `${title}｜昭和の戦争を読む` : '昭和の戦争を読む — 39冊で俯瞰する書籍ナビ';
+const bookCount = books.filter((b) => !b.related).length;
+const pageTitle = title ? `${title}｜昭和の戦争を読む` : `昭和の戦争を読む — ${bookCount}冊で俯瞰する書籍ナビ`;
 const desc = description ?? '満州事変から敗戦までを、著者の方法論×出来事×視点で俯瞰する戦争書籍ナビ。';
 ---
 <!doctype html>
@@ -28,12 +30,13 @@ const desc = description ?? '満州事変から敗戦までを、著者の方法
       <div class="inner">
         <div>
           <div class="site-title"><a href="/">昭和の戦争<span class="tsubo">を</span>読む</a></div>
-          <div class="site-tag">満州事変から敗戦まで——39冊で俯瞰する書籍ナビ</div>
+          <div class="site-tag">満州事変から敗戦まで——{bookCount}冊で俯瞰する書籍ナビ</div>
         </div>
         <nav class="site-nav">
           <a href="/#matrix">俯瞰マトリクス</a>
           <a href="/#authors">著者から</a>
           <a href="/#pairs">対で読む</a>
+          <a href="/genten/">原典へ</a>
           <a href="/about/">このサイトについて</a>
         </nav>
       </div>
