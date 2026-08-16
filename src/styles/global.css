@@ -52,8 +52,16 @@ img { max-width: 100%; }
   display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;
 }
 .site-title { font-size: 1.45rem; font-weight: 700; letter-spacing: 0.14em; }
+.site-title a { display: inline-flex; align-items: center; gap: 10px; }
 .site-title .tsubo { color: var(--shu); }
-.site-tag { font-size: 0.78rem; color: var(--ink-soft); letter-spacing: 0.08em; }
+.site-mark { flex-shrink: 0; display: block; transition: transform 0.25s ease; }
+.site-title a:hover .site-mark { transform: translateY(-2px); }
+@media (prefers-reduced-motion: reduce) {
+  .site-mark { transition: none; }
+  .site-title a:hover .site-mark { transform: none; }
+}
+/* マーク幅(26px)＋間隔(10px)ぶん下げてタイトル文字と頭を揃える */
+.site-tag { font-size: 0.78rem; color: var(--ink-soft); letter-spacing: 0.08em; padding-left: 36px; }
 .site-nav { display: flex; flex-wrap: wrap; gap: 0.5em 1.4em; font-size: 0.88rem; letter-spacing: 0.06em; }
 .site-nav a { border-bottom: 1px solid transparent; padding-bottom: 2px; }
 .site-nav a:hover { border-bottom-color: var(--shu); }
